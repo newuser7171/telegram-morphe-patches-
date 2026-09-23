@@ -38,6 +38,13 @@ val telegramVoiceToMusicPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        check(MessageObjectIsVoiceFingerprint.method.implementation != null) {
+            "Expected concrete MessageObject.isVoice() implementation"
+        }
+        check(MessageObjectIsMusicFingerprint.method.implementation != null) {
+            "Expected concrete MessageObject.isMusic() implementation"
+        }
+
         // isVoice() → always false: stops the voice-note UI from rendering
         MessageObjectIsVoiceFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
@@ -48,8 +55,8 @@ val telegramVoiceToMusicPatch = bytecodePatch(
         // Injected at index 0, before the original isMusicMessage() check.
         // Uses p0 (this), no label needed — falls through on false.
         MessageObjectIsMusicFingerprint.method.addInstructions(0, """
-            iget-object v0, p0, Lorg/telegram/messenger/MessageObject;->messageOwner:Lorg/telegram/tgnet/TLRPC${'$'}Message;
-            invoke-static { v0 }, Lorg/telegram/messenger/MessageObject;->isVoiceMessage(Lorg/telegram/tgnet/TLRPC${'$'}Message;)Z
+            iget-object v0, p0, Lorg/telegram/messenger/MessageObject;->messageOwner:Lorg/telegram/tgnet/TLRPC$Message;
+            invoke-static { v0 }, Lorg/telegram/messenger/MessageObject;->isVoiceMessage(Lorg/telegram/tgnet/TLRPC$Message;)Z
             move-result v0
             if-eqz v0, :not_voice
             const/4 v0, 0x1
