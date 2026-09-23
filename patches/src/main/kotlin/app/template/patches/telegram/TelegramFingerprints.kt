@@ -318,9 +318,9 @@ val CheckCanOpenChat4Fingerprint = Fingerprint(
     returnType = "Z",
     parameters = listOf(
         "Landroid/os/Bundle;",
-        "Lorg/telegram/ui/ActionBar/BaseFragment;",
+        "Lorg/telegram/ui/ActionBar/r2;",
         "Lorg/telegram/messenger/MessageObject;",
-        "Lorg/telegram/messenger/browser/Browser\$Progress;",
+        "Lfe/e;",
     ),
 )
 
