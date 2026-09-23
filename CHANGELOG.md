@@ -1,3 +1,9 @@
+## [1.0.35](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.34...v1.0.35) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* bypass no-forwards selection restriction ([e9def0d](https://github.com/cingxcong/telegram-morphe-patches-/commit/e9def0df7ea9f7c256738a659b3aa17daad0ab13))
+
 ## [1.0.34](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.33...v1.0.34) (2026-09-23)
 
 ### 🐛 Bug Fixes

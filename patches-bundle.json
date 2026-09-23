@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T19:25:28",
-  "description": "## [1.0.34](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.33...v1.0.34) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* remove incorrect sponsored count fingerprint ([9e6414d](https://github.com/cingxcong/telegram-morphe-patches-/commit/9e6414d90a1efc11412476095c080d17da1e8e98))\n* restore ads fingerprint file syntax ([5fe8b45](https://github.com/cingxcong/telegram-morphe-patches-/commit/5fe8b45d7a16cdae8fcbbf4e95b126f6c956eb7e))\n* restore ads patch syntax ([16160c2](https://github.com/cingxcong/telegram-morphe-patches-/commit/16160c214c85e06aa113f5e2a981474eb5ab78e3))\n* stop overriding chat message position calculation ([13af7dd](https://github.com/cingxcong/telegram-morphe-patches-/commit/13af7dd09237b11ff2a520a04f3f3537e832d3cc))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.34/patches-1.0.34.mpp",
+  "created_at": "2026-09-23T19:35:41",
+  "description": "## [1.0.35](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.34...v1.0.35) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* bypass no-forwards selection restriction ([e9def0d](https://github.com/cingxcong/telegram-morphe-patches-/commit/e9def0df7ea9f7c256738a659b3aa17daad0ab13))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.35/patches-1.0.35.mpp",
   "signature_download_url": "",
-  "version": "1.0.34"
+  "version": "1.0.35"
 }
