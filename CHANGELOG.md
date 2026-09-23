@@ -1,3 +1,9 @@
+## [1.0.9](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.8...v1.0.9) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* resolve createNoAccessAlert mapping for Telegram 12.10.3 ([450b78f](https://github.com/cingxcong/telegram-morphe-patches-/commit/450b78f4f118c9951e20c4fd2b1d64c49313fece))
+
 ## [1.0.8](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.7...v1.0.8) (2026-09-23)
 
 ### 🐛 Bug Fixes
