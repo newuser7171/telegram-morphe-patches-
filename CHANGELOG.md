@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.7...v1.0.8) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* update channel restriction fingerprints for 12.10.3 obfuscation ([45783be](https://github.com/cingxcong/telegram-morphe-patches-/commit/45783bef932c8fb2b276748c2ec357f7470e660a))
+
 ## [1.0.7](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.6...v1.0.7) (2026-09-23)
 
 ### 🐛 Bug Fixes
