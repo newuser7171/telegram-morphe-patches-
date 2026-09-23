@@ -1,3 +1,9 @@
+## [1.0.27](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.26...v1.0.27) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert integrity targets are concrete ([d593daf](https://github.com/cingxcong/telegram-morphe-patches-/commit/d593dafcc8d67a93903c19f3fdd85251bfad5b72))
+
 ## [1.0.26](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.25...v1.0.26) (2026-09-23)
 
 ### 🐛 Bug Fixes
