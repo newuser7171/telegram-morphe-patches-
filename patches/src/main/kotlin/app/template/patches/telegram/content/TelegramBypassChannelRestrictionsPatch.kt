@@ -2,8 +2,6 @@ package app.template.patches.telegram.content
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
-import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
@@ -15,8 +13,6 @@ import app.template.patches.telegram.CheckCanOpenChat4Fingerprint
 import app.template.patches.telegram.CheckChannelErrorFingerprint
 import app.template.patches.telegram.CheckSensitiveFingerprint
 import app.template.patches.telegram.CreateNoAccessAlertFingerprint
-import app.template.patches.telegram.DialogCellBuildLayoutFingerprint
-import app.template.patches.telegram.DialogCellUpdateMessageThumbsFingerprint
 import app.template.patches.telegram.GetChannelDiffErrorFingerprint
 import app.template.patches.telegram.GetRestrictionReasonFingerprint
 import app.template.patches.telegram.LoadFullChatErrorFingerprint
@@ -29,7 +25,6 @@ import app.template.patches.telegram.ShowCantOpenAlertFingerprint
 import app.template.patches.telegram.ShowSensitiveContentFingerprint
 import app.template.patches.telegram.signature.telegramSpoofDependency
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
@@ -51,31 +46,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             return-object v0
         """)
 
-        // ── Layer 2: null result registers in DialogCell call sites ───────────
-        // DialogCell.buildLayout and updateMessageThumbs call getRestrictionReason
-        // directly and pass the result to getMessageStringFormatted.
-        // Replace the move-result-object AFTER each getRestrictionReason invoke
-        // with const/4 0 on the same register — forcing null into the result slot
-        // so TextUtils.isEmpty(null)=true and the restriction display block is skipped.
-        // This fixes the dialogs list preview even for DB-cached messages.
-        listOf(
-            DialogCellBuildLayoutFingerprint,
-            DialogCellUpdateMessageThumbsFingerprint,
-        ).forEach { fp ->
-            fp.method.apply {
-                // Find all getRestrictionReason invoke sites in this method
-                val matchIndices = fp.instructionMatches.map { it.index }
-                // Work in reverse so earlier indices stay valid
-                for (invokeIdx in matchIndices.reversed()) {
-                    // The move-result-object immediately follows the invoke
-                    val moveResultIdx = invokeIdx + 1
-                    val reg = getInstruction<OneRegisterInstruction>(moveResultIdx).registerA
-                    replaceInstruction(moveResultIdx, "const/4 v$reg, 0x0")
-                }
-            }
-        }
-
-        // ── Layer 3: block updateMessageText entirely ─────────────────────────
+        // ── Layer 2: block updateMessageText entirely ─────────────────────────
         // Prevents messageText and isRestrictedMessage from ever being overwritten.
         MessageObjectUpdateMessageTextFingerprint.method.addInstructions(0, "return-void")
 
