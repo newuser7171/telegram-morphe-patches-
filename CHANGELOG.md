@@ -1,3 +1,9 @@
+## [1.0.31](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.30...v1.0.31) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* verify ChatActivity sponsored insertion signature ([6020820](https://github.com/cingxcong/telegram-morphe-patches-/commit/602082008385080fe12a2415b112214060e350c2))
+
 ## [1.0.30](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.29...v1.0.30) (2026-09-23)
 
 ### 🐛 Bug Fixes
