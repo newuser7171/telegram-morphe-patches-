@@ -19,6 +19,13 @@ val telegramAntiScreenshotNotificationPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        check(SendScreenshotMessageUserFingerprint.method.implementation != null) {
+            "Expected concrete SendMessagesHelper.sendScreenshotMessage(User,I,Message) implementation"
+        }
+        check(SendScreenshotMessageSecretFingerprint.method.implementation != null) {
+            "Expected concrete SecretChatHelper.sendScreenshotMessage(EncryptedChat,ArrayList,Message) implementation"
+        }
+
         // Suppress screenshot notification in regular chats
         SendScreenshotMessageUserFingerprint.method.addInstructions(0, "return-void")
 
