@@ -600,6 +600,19 @@ val ChatActivityGetSponsoredMessagesCountFingerprint = Fingerprint(
     returnType = "I",
 )
 
+val MessagesControllerSponsoredMessagesResponseFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/messenger/MessagesController;",
+    returnType = "V",
+    custom = { method, _ ->
+        method.name.startsWith("lambda\$getSponsoredMessages\$") &&
+            method.implementation?.instructions?.any { instr ->
+                val ref = (instr as? ReferenceInstruction)?.reference as? com.android.tools.smali.dexlib2.iface.reference.FieldReference
+                ref?.definingClass == "Lorg/telegram/messenger/MessageObject;" &&
+                    ref.name == "sponsoredId"
+            } == true
+    },
+)
+
 val MessagesControllerGetSponsoredMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "getSponsoredMessages",
