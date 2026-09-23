@@ -15,7 +15,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 // SHA-256 of the original signing certificate (X.509 DER) for each package variant.
 // Computed as: SHA-256(CertificateFactory("X509").generateCertificate(pkcs7Stream).encoded)
 // i.e. the hash of the DER-encoded X.509 cert extracted from the APK's META-INF/[name].RSA PKCS7 blob.
-// This is exactly what getCertificateSHA256Fingerprint() computes at runtime.
 //
 // Do NOT use the raw PKCS7 SHA-256 — that's a different (larger) byte sequence.
 //
@@ -53,6 +52,13 @@ val telegramBypassIntegrityPatch = bytecodePatch(
     execute {
         val certHash = CERT_HASHES[detectedPackageName]
             ?: error("No cert hash for package '$detectedPackageName'")
+
+        check(AndroidUtilitiesGetCertFingerprintFingerprint.method.implementation != null) {
+            "Expected concrete AndroidUtilities.getCertificateSHA256Fingerprint() implementation"
+        }
+        check(SafetyNetCheckFingerprint.method.implementation != null) {
+            "Expected concrete SafetyNet integrity-check implementation"
+        }
 
         // Return the original cert SHA-256 so server-side cert checks pass
         AndroidUtilitiesGetCertFingerprintFingerprint.method.addInstructions(0, """
