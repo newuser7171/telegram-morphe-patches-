@@ -322,16 +322,24 @@ val CheckCanOpenChat4Fingerprint = Fingerprint(
 
 val MarkMessagesAsDeletedFingerprint1 = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesStorage;",
-    name = "markMessagesAsDeleted",
-    returnType = "Ljava/util/ArrayList;",
-    parameters = listOf("J", "I", "Z", "Z"),
+    custom = { method, classDef ->
+        classDef.type == "Lorg/telegram/messenger/MessagesStorage;" &&
+            method.name == "markMessagesAsDeleted" &&
+            method.returnType == "Ljava/util/ArrayList;" &&
+            method.parameterTypes == listOf("J", "I", "Z", "Z")
+    },
 )
 
 val MarkMessagesAsDeletedFingerprint2 = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesStorage;",
-    name = "markMessagesAsDeleted",
-    returnType = "Ljava/util/ArrayList;",
-    parameters = listOf("J", "Ljava/util/ArrayList;", "Z", "Z", "I", "I"),
+    custom = { method, classDef ->
+        classDef.type == "Lorg/telegram/messenger/MessagesStorage;" &&
+            method.name == "markMessagesAsDeleted" &&
+            method.returnType == "Ljava/util/ArrayList;" &&
+            method.parameterTypes == listOf(
+                "J", "Ljava/util/ArrayList;", "Z", "Z", "I", "I"
+            )
+    },
 )
 
 // Web: protected; Plus: public. Omit accessFlags.
