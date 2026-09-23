@@ -21,14 +21,21 @@ val telegramHideTypingPatch = bytecodePatch(
     execute {
         // needSendTyping()V — UI layer: called by ChatActivityEnterView when the user types.
         // Silencing all implementations prevents the typing TL request from being dispatched.
-        Fingerprint(
+        val needSendTypingMatches = Fingerprint(
             name = "needSendTyping",
             returnType = "V",
             parameters = listOf(),
-        ).matchAllOrNull()?.forEach { match ->
-            if (match.method.implementation != null) {
-                match.method.addInstructions(0, "return-void")
+        ).matchAllOrNull().orEmpty()
+
+        check(needSendTypingMatches.isNotEmpty()) {
+            "Expected at least one needSendTyping() implementation for Telegram 12.10.3"
+        }
+
+        needSendTypingMatches.forEach { match ->
+            check(match.method.implementation != null) {
+                "Expected concrete needSendTyping() implementation"
             }
+            match.method.addInstructions(0, "return-void")
         }
 
         // Plus-only: MessagesController.sendTyping(JJII)Z — controller dispatch layer.
