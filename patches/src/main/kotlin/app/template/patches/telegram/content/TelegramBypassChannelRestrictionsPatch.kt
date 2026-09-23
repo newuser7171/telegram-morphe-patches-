@@ -5,9 +5,13 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.mutableClassDefBy
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.telegram.CheckChannelErrorFingerprint
+import app.template.patches.telegram.CheckCanOpenChat2Fingerprint
+import app.template.patches.telegram.CheckCanOpenChat3Fingerprint
+import app.template.patches.telegram.CheckCanOpenChat4Fingerprint
 import app.template.patches.telegram.CheckSensitiveFingerprint
 import app.template.patches.telegram.GetChannelDiffErrorFingerprint
 import app.template.patches.telegram.CreateNoAccessAlertFingerprint
