@@ -1,3 +1,9 @@
+## [1.8.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.7.1...v1.8.0) (2026-09-23)
+
+### ✨ New Features
+
+* bypass translation restriction gate ([a51b141](https://github.com/cingxcong/telegram-morphe-patches-/commit/a51b141170d3df85856f85e119854d16801ca2bb))
+
 ## [1.7.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.7.0...v1.7.1) (2026-09-23)
 
 ### 🐛 Bug Fixes

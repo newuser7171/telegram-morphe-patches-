@@ -42,9 +42,9 @@ If a patch fails to match, please open an issue and include:
 Please do not post private account data, authentication tokens, or modified APKs containing personal information.
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.7.1](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.7.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;41 patches total
+> **[v1.8.0](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.8.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;44 patches total
 <details open>
-<summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;14 patches</summary>
+<summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;15 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -60,6 +60,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 | [Bypass channel restrictions](#bypass-channel-restrictions) | Allows opening, viewing, saving and forwarding content from restricted, sensitive, and copyright-restricted channels. |  |
 | [Bypass content restrictions](#bypass-content-restrictions) | Allows saving and forwarding content from restricted channels, chats, and users. |  |
 | [Bypass integrity check](#bypass-integrity-check) | Spoofs certificate fingerprint and SafetyNet results so login works on patched APK. |  |
+| [Bypass translation restrictions](#bypass-translation-restrictions) | Keeps the translation UI available when a chat or user has disabled translations. |  |
 | [Disable auto-update](#disable-auto-update) | Disables Telegram update availability/state and the update-state refresh path without replacing the 12.10.3 update UI method wholesale. |  |
 | [Disable channel switching](#disable-channel-switching) | Disables the pull-down gesture that switches to the next unread channel. |  |
 | [Download speed boost](#download-speed-boost) | Increases download chunk size to 1 MB and max concurrent requests to 12. |  |
@@ -72,7 +73,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 </details>
 
 <details open>
-<summary>📦 Telegram Web&nbsp;&nbsp;•&nbsp;&nbsp;11 patches</summary>
+<summary>📦 Telegram Web&nbsp;&nbsp;•&nbsp;&nbsp;12 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -86,6 +87,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 | [Anti-disappearing media](#anti-disappearing-media) | Keeps view-once photos, videos and voice messages viewable indefinitely. |  |
 | [Anti-screenshot notification](#anti-screenshot-notification) | Blocks screenshot notifications from being sent to the other user. |  |
 | [Bypass integrity check](#bypass-integrity-check) | Spoofs certificate fingerprint and SafetyNet results so login works on patched APK. |  |
+| [Bypass translation restrictions](#bypass-translation-restrictions) | Keeps the translation UI available when a chat or user has disabled translations. |  |
 | [Disable auto-update](#disable-auto-update) | Disables Telegram update availability/state and the update-state refresh path without replacing the 12.10.3 update UI method wholesale. |  |
 | [Download speed boost](#download-speed-boost) | Increases download chunk size to 1 MB and max concurrent requests to 12. |  |
 | [Hide typing indicator](#hide-typing-indicator) | Hides your typing indicator from other users in all chats. On Telegram Plus also silences the controller-level sendTyping dispatcher. |  |
@@ -97,7 +99,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 </details>
 
 <details open>
-<summary>📦 Telegram Plus&nbsp;&nbsp;•&nbsp;&nbsp;12 patches</summary>
+<summary>📦 Telegram Plus&nbsp;&nbsp;•&nbsp;&nbsp;13 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -111,6 +113,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 | [Anti-disappearing media](#anti-disappearing-media) | Keeps view-once photos, videos and voice messages viewable indefinitely. |  |
 | [Anti-screenshot notification](#anti-screenshot-notification) | Blocks screenshot notifications from being sent to the other user. |  |
 | [Bypass integrity check](#bypass-integrity-check) | Spoofs certificate fingerprint and SafetyNet results so login works on patched APK. |  |
+| [Bypass translation restrictions](#bypass-translation-restrictions) | Keeps the translation UI available when a chat or user has disabled translations. |  |
 | [Disable analytics](#disable-analytics) | Blocks Firebase analytics and event tracking in Telegram Plus. FirebaseApp.initializeApp() is preserved so push notifications keep working. |  |
 | [Disable auto-update](#disable-auto-update) | Disables Telegram update availability/state and the update-state refresh path without replacing the 12.10.3 update UI method wholesale. |  |
 | [Download speed boost](#download-speed-boost) | Increases download chunk size to 1 MB and max concurrent requests to 12. |  |

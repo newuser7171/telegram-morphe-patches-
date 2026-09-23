@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T21:07:41",
-  "description": "## [1.7.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.7.0...v1.7.1) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* harden anti-disappearing media gates ([00ea246](https://github.com/cingxcong/telegram-morphe-patches-/commit/00ea246c6a3741f9aeade4a32e189270d4e43a26))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.7.1/patches-1.7.1.mpp",
+  "created_at": "2026-09-23T21:18:50",
+  "description": "## [1.8.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.7.1...v1.8.0) (2026-09-23)\n\n### ✨ New Features\n\n* bypass translation restriction gate ([a51b141](https://github.com/cingxcong/telegram-morphe-patches-/commit/a51b141170d3df85856f85e119854d16801ca2bb))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.8.0/patches-1.8.0.mpp",
   "signature_download_url": "",
-  "version": "1.7.1"
+  "version": "1.8.0"
 }
