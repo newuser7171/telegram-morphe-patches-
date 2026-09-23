@@ -20,6 +20,7 @@ import app.template.patches.telegram.CanForwardMessageFingerprint
 import app.template.patches.telegram.MessageObjectNeedDrawShareButtonFingerprint
 import app.template.patches.telegram.PhotoViewerC2Fingerprint
 import app.template.patches.telegram.PhotoViewerG2Fingerprint
+import app.template.patches.telegram.PeerStoriesViewAllowScreenshotsFingerprint
 import app.template.patches.telegram.ChatActivitySaveToDownloadsGateFingerprint
 import app.template.patches.telegram.FileLoaderCanSaveToPublicStorageFingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsLongFingerprint
@@ -143,6 +144,24 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
                 )
             }
 
+
+        // Bypass the Stories screenshot gate: StoryItem.noforwards and chat noforwards.
+        PeerStoriesViewAllowScreenshotsFingerprint.method.implementation!!.instructions
+            .withIndex()
+            .filter { (_, instruction) ->
+                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                (ref?.definingClass == "Lorg/telegram/tgnet/tl/TL_stories\$StoryItem;" ||
+                    ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Chat;") &&
+                    ref.name == "noforwards" &&
+                    instruction.opcode.name == "IGET_BOOLEAN"
+            }
+            .forEach { match ->
+                val reg = (match.value as TwoRegisterInstruction).registerA
+                PeerStoriesViewAllowScreenshotsFingerprint.method.replaceInstruction(
+                    match.index,
+                    "const/4 v$reg, 0x0",
+                )
+            }
 
         // Bypass the ChatActivity save-to-downloads gate that directly checks Message.noforwards.
         ChatActivitySaveToDownloadsGateFingerprint.method.implementation!!.instructions
