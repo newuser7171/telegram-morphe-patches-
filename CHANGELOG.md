@@ -1,3 +1,10 @@
+## [1.0.30](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.29...v1.0.30) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* target inlined stories premium check ([2c3aa79](https://github.com/cingxcong/telegram-morphe-patches-/commit/2c3aa79b2fac3404a1bb78bc77e1292fe0c86dfe))
+* target inlined stories premium check ([e1fdbf5](https://github.com/cingxcong/telegram-morphe-patches-/commit/e1fdbf56bdd310722ea732b9ef52a79c3761db81))
+
 ## [1.0.29](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.28...v1.0.29) (2026-09-23)
 
 ### 🐛 Bug Fixes
