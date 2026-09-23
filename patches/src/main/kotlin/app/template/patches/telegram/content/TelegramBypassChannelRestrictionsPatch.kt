@@ -1,7 +1,6 @@
 package app.template.patches.telegram.content
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.mutableClassDefBy
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -11,6 +10,7 @@ import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.telegram.CheckChannelErrorFingerprint
 import app.template.patches.telegram.CheckSensitiveFingerprint
 import app.template.patches.telegram.GetChannelDiffErrorFingerprint
+import app.template.patches.telegram.CreateNoAccessAlertFingerprint
 import app.template.patches.telegram.GetRestrictionReasonFingerprint
 import app.template.patches.telegram.LoadFullChatErrorFingerprint
 import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
@@ -121,19 +121,15 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         GetChannelDiffErrorFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // ── Chat open permission ──────────────────────────────────────────────
-        val messagesController = mutableClassDefBy("Lorg/telegram/messenger/MessagesController;")
-        messagesController.methods
-            .filter { it.name == "checkCanOpenChat" && it.returnType == "Z" }
-            .filter {
-                it.parameterTypes == listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;") ||
-                    it.parameterTypes == listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;", "Lorg/telegram/messenger/MessageObject;") ||
-                    it.parameterTypes == listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;", "Lorg/telegram/messenger/MessageObject;", "Lfe/e;")
-            }
-            .forEach {
-                it.addInstructions(0, """
-                    const/4 v0, 0x1
-                    return v0
-                """)
-            }
+        listOf(
+            CheckCanOpenChat2Fingerprint,
+            CheckCanOpenChat3Fingerprint,
+            CheckCanOpenChat4Fingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.methodOrNull?.addInstructions(0, """
+                const/4 v0, 0x1
+                return v0
+            """)
+        }
     }
 }
