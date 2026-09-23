@@ -23,6 +23,29 @@ val telegramPremiumPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        listOf(
+            UserConfigIsPremiumFingerprint,
+            MessagesControllerIsPremiumUserFingerprint,
+            UserConfigHasPremiumOnAccountsFingerprint,
+            UserConfigGetMaxAccountCountFingerprint,
+            SharedConfigGetDevicePerformanceClassFingerprint,
+        ).forEach {
+            check(it.method.implementation != null) {
+                "Expected concrete implementation for ${it.method.definingClass}->${it.method.name}"
+            }
+        }
+
+        PremiumFeaturesBlockedFingerprint.methodOrNull?.let { method ->
+            check(method.implementation != null) {
+                "Expected concrete implementation for ${method.definingClass}->${method.name}"
+            }
+        }
+        StoriesControllerIsPremiumFingerprint.methodOrNull?.let { method ->
+            check(method.implementation != null) {
+                "Expected concrete implementation for ${method.definingClass}->${method.name}"
+            }
+        }
+
         // isPremium() for current user → true
         UserConfigIsPremiumFingerprint.method.addInstructions(0, """
             const/4 v0, 0x1
@@ -36,7 +59,7 @@ val telegramPremiumPatch = bytecodePatch(
         if (isPlusBuild) {
             MessagesControllerIsPremiumUserFingerprint.method.addInstructions(0, """
                 if-eqz p1, :not_self
-                iget-boolean v0, p1, Lorg/telegram/tgnet/TLRPC${'$'}User;->self:Z
+                iget-boolean v0, p1, Lorg/telegram/tgnet/TLRPC$User;->self:Z
                 if-eqz v0, :not_self
                 const/4 v0, 0x1
                 return v0
