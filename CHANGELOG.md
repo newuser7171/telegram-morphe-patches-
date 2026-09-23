@@ -1,3 +1,9 @@
+## [1.0.13](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.12...v1.0.13) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* make ad removal fingerprints optional on Telegram 12.10.3 ([06dda24](https://github.com/cingxcong/telegram-morphe-patches-/commit/06dda24702c47a73c89964827ba33a8b8c2c4f50))
+
 ## [1.0.12](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.11...v1.0.12) (2026-09-23)
 
 ### 🐛 Bug Fixes

@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T11:51:55",
-  "description": "## [1.0.12](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.11...v1.0.12) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* map channel switching methods for Telegram 12.10.3 ([0d74b83](https://github.com/cingxcong/telegram-morphe-patches-/commit/0d74b83e65b07f2acdeac42d27c49564ec4d876e))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.12/patches-1.0.12.mpp",
+  "created_at": "2026-09-23T11:57:19",
+  "description": "## [1.0.13](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.12...v1.0.13) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* make ad removal fingerprints optional on Telegram 12.10.3 ([06dda24](https://github.com/cingxcong/telegram-morphe-patches-/commit/06dda24702c47a73c89964827ba33a8b8c2c4f50))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.13/patches-1.0.13.mpp",
   "signature_download_url": "",
-  "version": "1.0.12"
+  "version": "1.0.13"
 }
