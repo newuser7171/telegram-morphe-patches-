@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.6...v1.0.7) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* remove stale DialogCell restriction fingerprint for 12.10.3 ([36242a1](https://github.com/cingxcong/telegram-morphe-patches-/commit/36242a114418f6de422ae6bf86ed7f8933dcf343))
+* restore instruction helpers after removing stale DialogCell layer ([f5be2c4](https://github.com/cingxcong/telegram-morphe-patches-/commit/f5be2c4ff2057eebd6b324eccfe291013f97599b))
+
 ## [1.0.6](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.5...v1.0.6) (2026-09-23)
 
 ### 🐛 Bug Fixes

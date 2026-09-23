@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T10:58:55",
-  "description": "## [1.0.6](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.5...v1.0.6) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* match 12.10.3 secret media callback signatures ([68e5fb0](https://github.com/cingxcong/telegram-morphe-patches-/commit/68e5fb0ab173c743a95eecbbb13c5497334ae33f))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.6/patches-1.0.6.mpp",
+  "created_at": "2026-09-23T11:08:54",
+  "description": "## [1.0.7](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.6...v1.0.7) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* remove stale DialogCell restriction fingerprint for 12.10.3 ([36242a1](https://github.com/cingxcong/telegram-morphe-patches-/commit/36242a114418f6de422ae6bf86ed7f8933dcf343))\n* restore instruction helpers after removing stale DialogCell layer ([f5be2c4](https://github.com/cingxcong/telegram-morphe-patches-/commit/f5be2c4ff2057eebd6b324eccfe291013f97599b))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.7/patches-1.0.7.mpp",
   "signature_download_url": "",
-  "version": "1.0.6"
+  "version": "1.0.7"
 }
