@@ -59,7 +59,8 @@ val telegramPremiumPatch = bytecodePatch(
         if (isPlusBuild) {
             MessagesControllerIsPremiumUserFingerprint.method.addInstructions(0, """
                 if-eqz p1, :not_self
-                iget-boolean v0, p1, Lorg/telegram/tgnet/TLRPC${'$'}User;->self:Z
+                iget-boolean v0, p1, Lorg/telegram/tgnet/TLRPC$User;->self:Z
+                if-eqz v0, :not_self
                 const/4 v0, 0x1
                 return v0
                 :not_self
@@ -101,5 +102,4 @@ val telegramPremiumPatch = bytecodePatch(
             return v0
         """)
     }
-}
 }
