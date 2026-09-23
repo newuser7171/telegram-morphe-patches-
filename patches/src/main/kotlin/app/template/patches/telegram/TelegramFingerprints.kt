@@ -723,6 +723,13 @@ val ChatActivityEnterViewHandleRichHtmlPasteFingerprint = Fingerprint(
     parameters = listOf(),
 )
 
+val MessageObjectNeedDrawShareButtonFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/messenger/MessageObject;",
+    name = "needDrawShareButton",
+    returnType = "Z",
+    parameters = listOf(),
+)
+
 val ChatActivityForwardMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "s8",
