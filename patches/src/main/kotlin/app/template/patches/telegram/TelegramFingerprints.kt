@@ -295,36 +295,6 @@ val SetContentSettingsFingerprint = Fingerprint(
     parameters = listOf("Z"),
 )
 
-val CheckCanOpenChat2Fingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/messenger/MessagesController;",
-    name = "checkCanOpenChat",
-    returnType = "Z",
-    parameters = listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;"),
-)
-
-val CheckCanOpenChat3Fingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/messenger/MessagesController;",
-    name = "checkCanOpenChat",
-    returnType = "Z",
-    parameters = listOf(
-        "Landroid/os/Bundle;",
-        "Lorg/telegram/ui/ActionBar/r2;",
-        "Lorg/telegram/messenger/MessageObject;",
-    ),
-)
-
-val CheckCanOpenChat4Fingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/messenger/MessagesController;",
-    name = "checkCanOpenChat",
-    returnType = "Z",
-    parameters = listOf(
-        "Landroid/os/Bundle;",
-        "Lorg/telegram/ui/ActionBar/r2;",
-        "Lorg/telegram/messenger/MessageObject;",
-        "Lfe/e;",
-    ),
-)
-
 // ─── Anti-delete ──────────────────────────────────────────────────────────────
 
 val MarkMessagesAsDeletedFingerprint1 = Fingerprint(
