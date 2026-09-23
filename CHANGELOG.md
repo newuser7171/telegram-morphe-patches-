@@ -1,3 +1,9 @@
+## [1.0.5](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.4...v1.0.5) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* match Telegram 12.10.3 notification delete parameter ([fbeed4a](https://github.com/cingxcong/telegram-morphe-patches-/commit/fbeed4a8d75c0e8eae01834182544d9ad594a018))
+
 ## [1.0.4](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.3...v1.0.4) (2026-09-23)
 
 ### 🐛 Bug Fixes
