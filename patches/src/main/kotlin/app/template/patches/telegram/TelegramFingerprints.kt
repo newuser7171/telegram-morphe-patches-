@@ -326,7 +326,11 @@ val MarkMessagesAsDeletedFingerprint1 = Fingerprint(
         classDef.type == "Lorg/telegram/messenger/MessagesStorage;" &&
             method.name == "markMessagesAsDeleted" &&
             method.returnType == "Ljava/util/ArrayList;" &&
-            method.parameterTypes == listOf("J", "I", "Z", "Z")
+            method.parameterTypes.size == 4 &&
+            method.parameterTypes[0] == "J" &&
+            method.parameterTypes[1] == "I" &&
+            method.parameterTypes[2] == "Z" &&
+            method.parameterTypes[3] == "Z"
     },
 )
 
@@ -336,9 +340,13 @@ val MarkMessagesAsDeletedFingerprint2 = Fingerprint(
         classDef.type == "Lorg/telegram/messenger/MessagesStorage;" &&
             method.name == "markMessagesAsDeleted" &&
             method.returnType == "Ljava/util/ArrayList;" &&
-            method.parameterTypes == listOf(
-                "J", "Ljava/util/ArrayList;", "Z", "Z", "I", "I"
-            )
+            method.parameterTypes.size == 6 &&
+            method.parameterTypes[0] == "J" &&
+            method.parameterTypes[1] == "Ljava/util/ArrayList;" &&
+            method.parameterTypes[2] == "Z" &&
+            method.parameterTypes[3] == "Z" &&
+            method.parameterTypes[4] == "I" &&
+            method.parameterTypes[5] == "I"
     },
 )
 
