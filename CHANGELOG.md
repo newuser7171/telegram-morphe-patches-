@@ -1,3 +1,9 @@
+## [1.0.18](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.17...v1.0.18) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert rich paste branch is present ([b0392ab](https://github.com/cingxcong/telegram-morphe-patches-/commit/b0392ab064ded438943d15aee9db1a6c4d63b0ee))
+
 ## [1.0.17](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.16...v1.0.17) (2026-09-23)
 
 ### 🐛 Bug Fixes
