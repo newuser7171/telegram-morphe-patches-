@@ -259,15 +259,10 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // ── Channel access errors ─────────────────────────────────────────────
         ShowCantOpenAlertFingerprint.method.addInstructions(0, "return-void")
         CheckChannelErrorFingerprint.method.addInstructions(0, "return-void")
-        mutableClassDefBy("Lorg/telegram/ui/Components/d5;").methods.single {
-            it.name == "F" &&
-                it.returnType == "Lorg/telegram/ui/ActionBar/AlertDialog\$Builder;" &&
-                it.parameterTypes == listOf(
-                    "Landroid/content/Context;",
-                    "Ljava/lang/String;",
-                    "Ljava/lang/String;",
-                )
-        }.addInstructions(0, """
+        // Use the already-resolved 12.10.3 fingerprint instead of a brittle
+        // mutable-class .single { } lookup. The latter is what caused the
+        // runtime "Collection contains no element matching the predicate" crash.
+        CreateNoAccessAlertFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
