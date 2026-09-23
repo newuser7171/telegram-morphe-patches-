@@ -10,7 +10,6 @@ import app.template.patches.telegram.AdsControllerAdsDisabledFingerprint
 import app.template.patches.telegram.AdsInstanceLoadAdsFingerprint
 import app.template.patches.telegram.AdsInstanceLoadNativeAdFingerprint
 import app.template.patches.telegram.ChatActivityAddSponsoredMessagesFingerprint
-import app.template.patches.telegram.ChatActivityGetSponsoredMessagesCountFingerprint
 import app.template.patches.telegram.MessageObjectIsSponsoredFingerprint
 import app.template.patches.telegram.MessagesControllerGetSponsoredMessagesFingerprint
 import app.template.patches.telegram.MessagesControllerSponsoredMessagesResponseFingerprint
@@ -29,7 +28,6 @@ val telegramRemoveAdsPatch = bytecodePatch(
     execute {
         listOf(
             ChatActivityAddSponsoredMessagesFingerprint,
-            ChatActivityGetSponsoredMessagesCountFingerprint,
             MessagesControllerIsSponsoredDisabledFingerprint,
             MessagesControllerGetSponsoredMessagesFingerprint,
             MessagesControllerSponsoredMessagesResponseFingerprint,
@@ -48,13 +46,7 @@ val telegramRemoveAdsPatch = bytecodePatch(
 
         // Block sponsored messages from being injected into chat list
         ChatActivityAddSponsoredMessagesFingerprint.methodOrNull?.addInstructions(0, "return-void")
-
-        // Return 0 count so UI never shows a sponsored message slot
-        ChatActivityGetSponsoredMessagesCountFingerprint.methodOrNull?.addInstructions(0, """
-            const/4 v0, 0x0
-            return v0
-        """)
-
+\n
         // Report sponsored as disabled at controller level
         MessagesControllerIsSponsoredDisabledFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x1
