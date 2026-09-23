@@ -1,3 +1,12 @@
+## [1.0.14](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.13...v1.0.14) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* remove invalid mutableClassDefBy import ([c6156e6](https://github.com/cingxcong/telegram-morphe-patches-/commit/c6156e61420bd313f83f57d8da4ca59b5cdcb657))
+* resolve channel access methods directly for Telegram 12.10.3 ([9d119c2](https://github.com/cingxcong/telegram-morphe-patches-/commit/9d119c21b108ba257ff62596ae5b98c208818fd6))
+* restore channel-open fingerprint imports ([731cf14](https://github.com/cingxcong/telegram-morphe-patches-/commit/731cf142437179646e2016a7f74cdf08ad974187))
+* tolerate missing channel-open overloads on 12.10.3 ([9b9a127](https://github.com/cingxcong/telegram-morphe-patches-/commit/9b9a12764c41ec76d102d1967b91b4fdb6cb6ab2))
+
 ## [1.0.13](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.12...v1.0.13) (2026-09-23)
 
 ### 🐛 Bug Fixes

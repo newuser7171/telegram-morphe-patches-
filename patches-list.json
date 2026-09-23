@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "patches": [
     {
       "name": "Anti-delete messages",
@@ -266,50 +266,6 @@
               "description": null
             }
           ]
-        },
-        {
-          "packageName": "org.telegram.messenger.web",
-          "name": "Telegram Web",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#2CA5E0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "12.10.1",
-              "versionCodes": {
-                "ARM64_V8A": 70389,
-                "ARMEABI_V7A": 70389,
-                "X86_64": 70389,
-                "X86": 70389
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
-        {
-          "packageName": "org.telegram.plus",
-          "name": "Telegram Plus",
-          "description": null,
-          "apkFileType": "XAPK",
-          "appIconColor": "#2CA5E0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "12.10.1.1",
-              "versionCodes": {
-                "ARM64_V8A": 22510,
-                "ARMEABI_V7A": 22510,
-                "X86_64": 22510,
-                "X86": 22510
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
         }
       ],
       "options": []
@@ -338,50 +294,6 @@
                 "ARMEABI_V7A": 70892,
                 "X86_64": 70892,
                 "X86": 70892
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
-        {
-          "packageName": "org.telegram.messenger.web",
-          "name": "Telegram Web",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#2CA5E0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "12.10.1",
-              "versionCodes": {
-                "ARM64_V8A": 70389,
-                "ARMEABI_V7A": 70389,
-                "X86_64": 70389,
-                "X86": 70389
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
-        {
-          "packageName": "org.telegram.plus",
-          "name": "Telegram Plus",
-          "description": null,
-          "apkFileType": "XAPK",
-          "appIconColor": "#2CA5E0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "12.10.1.1",
-              "versionCodes": {
-                "ARM64_V8A": 22510,
-                "ARMEABI_V7A": 22510,
-                "X86_64": 22510,
-                "X86": 22510
               },
               "isExperimental": false,
               "minSdk": null,
@@ -603,50 +515,6 @@
                 "ARMEABI_V7A": 70892,
                 "X86_64": 70892,
                 "X86": 70892
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
-        {
-          "packageName": "org.telegram.messenger.web",
-          "name": "Telegram Web",
-          "description": null,
-          "apkFileType": "APK",
-          "appIconColor": "#2CA5E0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "12.10.1",
-              "versionCodes": {
-                "ARM64_V8A": 70389,
-                "ARMEABI_V7A": 70389,
-                "X86_64": 70389,
-                "X86": 70389
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        },
-        {
-          "packageName": "org.telegram.plus",
-          "name": "Telegram Plus",
-          "description": null,
-          "apkFileType": "XAPK",
-          "appIconColor": "#2CA5E0",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "12.10.1.1",
-              "versionCodes": {
-                "ARM64_V8A": 22510,
-                "ARMEABI_V7A": 22510,
-                "X86_64": 22510,
-                "X86": 22510
               },
               "isExperimental": false,
               "minSdk": null,
