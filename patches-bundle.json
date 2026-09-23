@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T16:55:04",
-  "description": "## [1.0.27](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.26...v1.0.27) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert integrity targets are concrete ([d593daf](https://github.com/cingxcong/telegram-morphe-patches-/commit/d593dafcc8d67a93903c19f3fdd85251bfad5b72))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.27/patches-1.0.27.mpp",
+  "created_at": "2026-09-23T16:59:52",
+  "description": "## [1.0.28](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.27...v1.0.28) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert remove ads targets are concrete ([ed930e1](https://github.com/cingxcong/telegram-morphe-patches-/commit/ed930e17084a54ddeeac839d0b3929fc07ad8cf4))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.28/patches-1.0.28.mpp",
   "signature_download_url": "",
-  "version": "1.0.27"
+  "version": "1.0.28"
 }

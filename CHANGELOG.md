@@ -1,3 +1,9 @@
+## [1.0.28](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.27...v1.0.28) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert remove ads targets are concrete ([ed930e1](https://github.com/cingxcong/telegram-morphe-patches-/commit/ed930e17084a54ddeeac839d0b3929fc07ad8cf4))
+
 ## [1.0.27](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.26...v1.0.27) (2026-09-23)
 
 ### 🐛 Bug Fixes
