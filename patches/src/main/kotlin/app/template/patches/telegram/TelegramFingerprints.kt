@@ -32,7 +32,7 @@ val MessagesControllerIsPremiumUserFingerprint = Fingerprint(
 )
 
 val StoriesControllerIsPremiumFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Stories/StoriesController;",
+    definingClass = "Lsg/o5;",
     name = "isPremium",
     returnType = "Z",
     parameters = listOf("J"),
@@ -56,8 +56,8 @@ val SafetyNetCheckFingerprint = Fingerprint(
 // ─── Ads ──────────────────────────────────────────────────────────────────────
 
 val ChatActivityAddSponsoredMessagesFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
-    name = "addSponsoredMessages",
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "s6",
     returnType = "V",
     parameters = listOf("Z"),
 )
@@ -85,14 +85,14 @@ val VideoAdsLoadFingerprint = Fingerprint(
 
 val CheckAppUpdateFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/LaunchActivity;",
-    name = "checkAppUpdate",
+    name = "H0",
     returnType = "V",
-    parameters = listOf("Z", "Lorg/telegram/messenger/browser/Browser\$Progress;"),
+    parameters = listOf("I", "Lorg/telegram/tgnet/TLRPC\$TL_help_appUpdate;", "Z"),
 )
 
 val BlockingUpdateViewShowFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Components/BlockingUpdateView;",
-    name = "show",
+    definingClass = "Lorg/telegram/ui/LaunchActivity;",
+    name = "H0",
     returnType = "V",
     parameters = listOf("I", "Lorg/telegram/tgnet/TLRPC\$TL_help_appUpdate;", "Z"),
 )
@@ -146,7 +146,7 @@ val MessagesControllerIsPeerNoForwardsFingerprint = Fingerprint(
 )
 
 val ChatActivityIsPeerNoForwardsFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
+    definingClass = "Lorg/telegram/ui/po;",
     name = "isPeerNoForwards",
     returnType = "Z",
 )
@@ -165,8 +165,8 @@ val CanForwardMessageFingerprint = Fingerprint(
 )
 
 val ChatActivityHasSelectedNoforwardsMessageFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
-    name = "hasSelectedNoforwardsMessage",
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "Z8",
     returnType = "Z",
 )
 
@@ -234,7 +234,7 @@ val MessageObjectIsHiddenSensitiveFingerprint = Fingerprint(
 )
 
 val CreateNoAccessAlertFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Components/AlertsCreator;",
+    definingClass = "Lorg/telegram/ui/Components/d5;",
     name = "createNoAccessAlert",
     returnType = "Lorg/telegram/ui/ActionBar/AlertDialog\$Builder;",
 )
@@ -396,22 +396,22 @@ val IsRoundOnceFingerprint = Fingerprint(
 
 // Web: private; Plus: public final. Omit accessFlags.
 val SendSecretMediaDeleteFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
-    name = "sendSecretMediaDelete",
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "N4",
     returnType = "Ljava/lang/Runnable;",
     parameters = listOf("Lorg/telegram/messenger/MessageObject;"),
 )
 
 val SendSecretMessageReadFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
-    name = "sendSecretMessageRead",
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "db",
     returnType = "Ljava/lang/Runnable;",
     parameters = listOf("Lorg/telegram/messenger/MessageObject;", "Z"),
 )
 
 val SecretMediaViewerClosePhotoFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/SecretMediaViewer;",
-    name = "closePhoto",
+    name = "e",
     returnType = "Z",
     accessFlags = listOf(AccessFlags.PUBLIC),
     parameters = listOf("Z", "Z"),
@@ -456,7 +456,7 @@ val MessagesControllerStoryEntitiesAllowedUserFingerprint = Fingerprint(
 )
 
 val StoriesControllerHasStoriesFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Stories/StoriesController;",
+    definingClass = "Lsg/o5;",
     name = "hasStories",
     returnType = "Z",
     parameters = listOf(),
@@ -464,14 +464,14 @@ val StoriesControllerHasStoriesFingerprint = Fingerprint(
 
 // Use the 2-param overload (J, StoryItem) — present in both variants
 val StoriesControllerMarkStoryAsReadFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Stories/StoriesController;",
+    definingClass = "Lsg/o5;",
     name = "markStoryAsRead",
     returnType = "Z",
     parameters = listOf("J", "Lorg/telegram/tgnet/tl/TL_stories\$StoryItem;"),
 )
 
 val PeerStoriesViewAllowScreenshotsFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Stories/PeerStoriesView\$StoryItemHolder;",
+    definingClass = "Lsg/i3;",
     name = "allowScreenshots",
     returnType = "Z",
 )
@@ -491,7 +491,7 @@ val ProfileActivityIsSwipeBackEnabledFingerprint = Fingerprint(
 )
 
 val ChatActivityIsSwipeBackEnabledFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
+    definingClass = "Lorg/telegram/ui/po;",
     name = "isSwipeBackEnabled",
     returnType = "Z",
     parameters = listOf("Landroid/view/MotionEvent;"),
@@ -586,20 +586,20 @@ val MessagesControllerIsUserNoForwardsUserFullFingerprint = Fingerprint(
 // Plus: getNextUnreadDialog(JIIZ[I)Dialog (5 params — different signature)
 // Omit parameters for cross-variant compat; method name + returnType + PUBLIC STATIC is unique
 val ChatPullingDownDrawableGetNextFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatPullingDownDrawable;",
+    definingClass = "Lorg/telegram/ui/mq;",
     name = "getNextUnreadDialog",
     returnType = "Lorg/telegram/tgnet/TLRPC\$Dialog;",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
 )
 
 val ChatPullingDownDrawableDrawBottomPanelFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatPullingDownDrawable;",
+    definingClass = "Lorg/telegram/ui/mq;",
     name = "drawBottomPanel",
     returnType = "V",
 )
 
 val ChatPullingDownDrawableNeedDrawBottomPanelFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatPullingDownDrawable;",
+    definingClass = "Lorg/telegram/ui/mq;",
     name = "needDrawBottomPanel",
     returnType = "Z",
 )
@@ -630,8 +630,8 @@ val SharedConfigGetDevicePerformanceClassFingerprint = Fingerprint(
 // ─── Sponsored messages count (NoAds) ────────────────────────────────────────
 
 val ChatActivityGetSponsoredMessagesCountFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
-    name = "getSponsoredMessagesCount",
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "n8",
     returnType = "I",
     // Web=private, Plus=public final — omit accessFlags for cross-variant compat
 )
@@ -664,7 +664,7 @@ val MessageObjectUpdateMessageTextFingerprint = Fingerprint(
 // DialogCell.buildLayout()V — calls getRestrictionReason twice; we use matchAll on the
 // getRestrictionReason methodCall filter to find and neutralise both result registers.
 val DialogCellBuildLayoutFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Cells/DialogCell;",
+    definingClass = "Lorg/telegram/ui/Cells/t2;",
     name = "buildLayout",
     returnType = "V",
     filters = listOf(
@@ -677,7 +677,7 @@ val DialogCellBuildLayoutFingerprint = Fingerprint(
 
 // DialogCell.updateMessageThumbs()V — also calls getRestrictionReason
 val DialogCellUpdateMessageThumbsFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Cells/DialogCell;",
+    definingClass = "Lorg/telegram/ui/Cells/t2;",
     name = "updateMessageThumbs",
     returnType = "V",
     filters = listOf(
@@ -779,8 +779,8 @@ val ChatActivityEnterViewHandleRichHtmlPasteFingerprint = Fingerprint(
 
 // ─── Rich-message forwarding / Hide Sender Name ───────────────────────────────
 val ChatActivityForwardMessagesFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/ChatActivity;",
-    name = "forwardMessages",
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "s8",
     returnType = "V",
     parameters = listOf(
         "Ljava/util/ArrayList;",
