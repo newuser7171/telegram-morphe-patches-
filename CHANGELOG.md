@@ -1,3 +1,9 @@
+## [1.0.15](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.14...v1.0.15) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* resolve checkCanOpenChat methods directly ([7cdb9dc](https://github.com/cingxcong/telegram-morphe-patches-/commit/7cdb9dcfae03bb2cccf75b4964100555f935421b))
+
 ## [1.0.14](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.13...v1.0.14) (2026-09-23)
 
 ### 🐛 Bug Fixes
