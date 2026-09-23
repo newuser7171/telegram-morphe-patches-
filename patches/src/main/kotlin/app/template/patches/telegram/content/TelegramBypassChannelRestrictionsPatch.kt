@@ -17,6 +17,7 @@ import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
 import app.template.patches.telegram.ChatActivityHasSelectedNoforwardsMessageFingerprint
 import app.template.patches.telegram.CanForwardMessageFingerprint
 import app.template.patches.telegram.MessageObjectNeedDrawShareButtonFingerprint
+import app.template.patches.telegram.PhotoViewerC2Fingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsLongFingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsChatFingerprint
 import app.template.patches.telegram.MessagesControllerIsPeerNoForwardsFingerprint
