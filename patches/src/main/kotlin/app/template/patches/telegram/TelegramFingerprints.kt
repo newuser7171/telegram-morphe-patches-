@@ -752,6 +752,13 @@ val PhotoViewerG2Fingerprint = Fingerprint(
     parameters = listOf("I", "Z", "Z", "Z"),
 )
 
+val ChatActivitySaveToDownloadsGateFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/ui/ao;",
+    name = "a0",
+    returnType = "Z",
+    parameters = listOf("Lorg/telegram/ui/Cells/v1;"),
+)
+
 val MessageObjectNeedDrawShareButtonFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessageObject;",
     name = "needDrawShareButton",
