@@ -1,3 +1,9 @@
+## [1.0.11](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.10...v1.0.11) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* tolerate missing peer forwarding restriction overload ([22c2b7c](https://github.com/cingxcong/telegram-morphe-patches-/commit/22c2b7c0368607e3f170bca8fe4b47cf04d738af))
+
 ## [1.0.10](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.9...v1.0.10) (2026-09-23)
 
 ### 🐛 Bug Fixes
