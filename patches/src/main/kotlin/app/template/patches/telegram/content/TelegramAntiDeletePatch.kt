@@ -7,8 +7,6 @@ import app.template.patches.telegram.signature.telegramSpoofDependency
 import app.template.patches.shared.Constants.TELEGRAM_PLUS_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_WEB_COMPATIBILITY
 import app.template.patches.telegram.DeleteMessagesByPushFingerprint
-import app.template.patches.telegram.MarkMessagesAsDeletedFingerprint1
-import app.template.patches.telegram.MarkMessagesAsDeletedFingerprint2
 import app.template.patches.telegram.NotificationsControllerRemoveDeletedMessagesFingerprint
 
 @Suppress("unused")
