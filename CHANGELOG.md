@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.36...v1.1.0) (2026-09-23)
+
+### ✨ New Features
+
+* bypass no-forwards share button gate ([37c00df](https://github.com/cingxcong/telegram-morphe-patches-/commit/37c00df8e1f097aba815b3aea03022ee50a4e164))
+* target share button no-forwards gate ([49bf037](https://github.com/cingxcong/telegram-morphe-patches-/commit/49bf037e3de07aba786b852141058b28eb089103))
+
 ## [1.0.36](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.35...v1.0.36) (2026-09-23)
 
 ### 🐛 Bug Fixes
