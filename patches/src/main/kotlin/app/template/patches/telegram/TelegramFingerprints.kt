@@ -362,7 +362,7 @@ val NotificationsControllerRemoveDeletedMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/NotificationsController;",
     name = "removeDeletedMessagesFromNotifications",
     returnType = "V",
-    parameters = listOf("Landroidx/collection/LongSparseArray;", "Z"),
+    parameters = listOf("Lz/f;", "Z"),
 )
 
 // ─── Anti-disappearing media ──────────────────────────────────────────────────
