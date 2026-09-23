@@ -18,6 +18,13 @@ val telegramAntiDeletePatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        check(DeleteMessagesByPushFingerprint.method.implementation != null) {
+            "Expected concrete deleteMessagesByPush implementation"
+        }
+        check(NotificationsControllerRemoveDeletedMessagesFingerprint.method.implementation != null) {
+            "Expected concrete NotificationsController.removeDeletedMessages implementation"
+        }
+
         val storageClass = mutableClassDefBy(
             classDefBy("Lorg/telegram/messenger/MessagesStorage;")
         )
