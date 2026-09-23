@@ -1,3 +1,11 @@
+## [1.0.32](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.31...v1.0.32) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* block sponsored response processing ([5555c01](https://github.com/cingxcong/telegram-morphe-patches-/commit/5555c0157ac207dbab155efa8d1abf14ed131b3f))
+* remove failed sponsored response fingerprint ([ca5d71c](https://github.com/cingxcong/telegram-morphe-patches-/commit/ca5d71c690a47a9b95344a480d2d60d13221c773))
+* restore ads patch after failed response target ([9844a25](https://github.com/cingxcong/telegram-morphe-patches-/commit/9844a25af9b333c7ada4e9ff54aa4b7b64792494))
+
 ## [1.0.31](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.30...v1.0.31) (2026-09-23)
 
 ### 🐛 Bug Fixes
