@@ -10,6 +10,7 @@ import app.template.patches.telegram.MessagesControllerIsPremiumUserFingerprint
 import app.template.patches.telegram.PremiumFeaturesBlockedFingerprint
 import app.template.patches.telegram.SharedConfigGetDevicePerformanceClassFingerprint
 import app.template.patches.telegram.StoriesControllerIsPremiumFingerprint
+import app.template.patches.telegram.StoriesControllerPremiumComparatorFingerprint
 import app.template.patches.telegram.UserConfigGetMaxAccountCountFingerprint
 import app.template.patches.telegram.UserConfigHasPremiumOnAccountsFingerprint
 import app.template.patches.telegram.UserConfigIsPremiumFingerprint
@@ -41,6 +42,11 @@ val telegramPremiumPatch = bytecodePatch(
             }
         }
         StoriesControllerIsPremiumFingerprint.methodOrNull?.let { method ->
+            check(method.implementation != null) {
+                "Expected concrete implementation for ${method.definingClass}->${method.name}"
+            }
+        }
+        StoriesControllerPremiumComparatorFingerprint.methodOrNull?.let { method ->
             check(method.implementation != null) {
                 "Expected concrete implementation for ${method.definingClass}->${method.name}"
             }
@@ -77,6 +83,13 @@ val telegramPremiumPatch = bytecodePatch(
             const/4 v0, 0x1
             return v0
         """)
+
+        StoriesControllerPremiumComparatorFingerprint.methodOrNull?.let { method ->
+            // Exact 12.10.3 bytecode: the inlined premium checks read
+            // TLRPC.User.premium into v1 at offset 147 and v0 at offset 129.
+            method.addInstructions(149, "const/4 v1, 0x1")
+            method.addInstructions(131, "const/4 v0, 0x1")
+        }
 
         UserConfigHasPremiumOnAccountsFingerprint.method.addInstructions(0, """
             const/4 v0, 0x1
