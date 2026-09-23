@@ -1,3 +1,17 @@
+## [1.0.29](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.28...v1.0.29) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert premium targets are concrete ([6cd762b](https://github.com/cingxcong/telegram-morphe-patches-/commit/6cd762b85584d13a885b76df2209bf01de941e9b))
+* escape premium User smali reference ([c036bf9](https://github.com/cingxcong/telegram-morphe-patches-/commit/c036bf9aaf205ea85f79bd9c0c3d7bc8c8318453))
+* escape premium User smali reference ([40f81bb](https://github.com/cingxcong/telegram-morphe-patches-/commit/40f81bb925df2ed6a7ed7ba304f731dff624821e))
+* escape premium User smali reference ([6c21fdc](https://github.com/cingxcong/telegram-morphe-patches-/commit/6c21fdc8f5dc484ae24ab94dc2e54e12b1868968))
+* remove duplicated premium patch tail ([5d43e5c](https://github.com/cingxcong/telegram-morphe-patches-/commit/5d43e5c17ec11a84add3a2a2567008264890ce57))
+* restore premium patch source ([160c9b3](https://github.com/cingxcong/telegram-morphe-patches-/commit/160c9b3335329f34d193e8d844072db8a4c2748e))
+* restore premium patch source cleanly ([d83f75f](https://github.com/cingxcong/telegram-morphe-patches-/commit/d83f75f1c5f53fe51ffab68063688b34dee2e199))
+* restore premium User smali reference ([aad9974](https://github.com/cingxcong/telegram-morphe-patches-/commit/aad9974e9be30631e8b320b9ac834d0228f12288))
+* restore premium User smali reference ([a146899](https://github.com/cingxcong/telegram-morphe-patches-/commit/a146899df7288486b5e3fa5a2ad9639ea8732708))
+
 ## [1.0.28](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.27...v1.0.28) (2026-09-23)
 
 ### 🐛 Bug Fixes
