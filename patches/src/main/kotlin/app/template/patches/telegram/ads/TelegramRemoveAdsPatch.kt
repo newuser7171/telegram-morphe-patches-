@@ -46,7 +46,7 @@ val telegramRemoveAdsPatch = bytecodePatch(
 
         // Block sponsored messages from being injected into chat list
         ChatActivityAddSponsoredMessagesFingerprint.methodOrNull?.addInstructions(0, "return-void")
-\n
+
         // Report sponsored as disabled at controller level
         MessagesControllerIsSponsoredDisabledFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x1
