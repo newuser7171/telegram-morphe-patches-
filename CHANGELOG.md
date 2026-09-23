@@ -1,3 +1,12 @@
+## [1.0.23](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.22...v1.0.23) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert voice to music targets are concrete ([f93c42a](https://github.com/cingxcong/telegram-morphe-patches-/commit/f93c42a449faaba7e66b75e7cc637d1b717fc7ec))
+* escape Telegram message type in voice patch ([f6c68db](https://github.com/cingxcong/telegram-morphe-patches-/commit/f6c68db37ca8bd6fd0a6dc1a924a095ab2b0b246))
+* escape TLRPC dollar in voice to music smali ([4021de9](https://github.com/cingxcong/telegram-morphe-patches-/commit/4021de9c40769a4f60807f795f9e00a9ed41431b))
+* repair voice to music patch string ([3895c6f](https://github.com/cingxcong/telegram-morphe-patches-/commit/3895c6f213d5994dd32872f9d476e29bc7022aa1))
+
 ## [1.0.22](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.21...v1.0.22) (2026-09-23)
 
 ### 🐛 Bug Fixes
