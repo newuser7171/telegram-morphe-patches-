@@ -1,3 +1,12 @@
+## [1.0.10](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.9...v1.0.10) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* correct fourth checkCanOpenChat overload for 12.10.3 ([4342fa3](https://github.com/cingxcong/telegram-morphe-patches-/commit/4342fa32574efee7d6595f697d1e07153d634c79))
+* match all checkCanOpenChat overloads on 12.10.3 ([ceb6d5c](https://github.com/cingxcong/telegram-morphe-patches-/commit/ceb6d5c53de058d5108b8f509460af7c6921a669))
+* resolve createNoAccessAlert directly for 12.10.3 ([b5d3efe](https://github.com/cingxcong/telegram-morphe-patches-/commit/b5d3efee509bbdbac1502f9cade0c285ed38b8dd))
+* use CreateNoAccessAlert fingerprint directly ([1bd6737](https://github.com/cingxcong/telegram-morphe-patches-/commit/1bd6737a5d39f7c91c1a8418946703663b0cf38a))
+
 ## [1.0.9](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.8...v1.0.9) (2026-09-23)
 
 ### 🐛 Bug Fixes
