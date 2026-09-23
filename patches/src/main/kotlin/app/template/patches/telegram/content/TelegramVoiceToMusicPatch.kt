@@ -55,18 +55,7 @@ val telegramVoiceToMusicPatch = bytecodePatch(
         // Injected at index 0, before the original isMusicMessage() check.
         // Uses p0 (this), no label needed — falls through on false.
         MessageObjectIsMusicFingerprint.method.addInstructions(0, """
-            iget-object v0, p0, Lorg/telegram/messenger/MessageObject;->messageOwner:Lorg/telegram/tgnet/TLRPC${';
-            invoke-static { v0 }, Lorg/telegram/messenger/MessageObject;->isVoiceMessage(Lorg/telegram/tgnet/TLRPC$Message;)Z
-            move-result v0
-            if-eqz v0, :not_voice
-            const/4 v0, 0x1
-            return v0
-            :not_voice
-            nop
-        """)
-    }
-}
-}Message;
+            iget-object v0, p0, Lorg/telegram/messenger/MessageObject;->messageOwner:Lorg/telegram/tgnet/TLRPC$Message;
             invoke-static { v0 }, Lorg/telegram/messenger/MessageObject;->isVoiceMessage(Lorg/telegram/tgnet/TLRPC$Message;)Z
             move-result v0
             if-eqz v0, :not_voice
