@@ -19,6 +19,13 @@ val telegramDisableAutoUpdatePatch = bytecodePatch(
     compatibleWith(TELEGRAM_COMPATIBILITY, TELEGRAM_WEB_COMPATIBILITY, TELEGRAM_PLUS_COMPATIBILITY)
 
     execute {
+        check(SharedConfigIsAppUpdateAvailableFingerprint.method.implementation != null) {
+            "Expected concrete SharedConfig.isAppUpdateAvailable() implementation"
+        }
+        check(SharedConfigSetNewAppVersionAvailableFingerprint.method.implementation != null) {
+            "Expected concrete SharedConfig.setNewAppVersionAvailable() implementation"
+        }
+
         SharedConfigIsAppUpdateAvailableFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
             return v0
