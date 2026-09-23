@@ -115,12 +115,12 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // Bypass the share-button gate that directly checks Message.noforwards.
         MessageObjectNeedDrawShareButtonFingerprint.method.implementation!!.instructions
             .withIndex()
-            .first { (_, instruction) ->
+            .firstOrNull { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                 ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
-            }.let { match ->
+            }?.let { match ->
                 val reg = (match.value as TwoRegisterInstruction).registerA
                 MessageObjectNeedDrawShareButtonFingerprint.method.replaceInstruction(
                     match.index,
@@ -131,12 +131,12 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // Bypass the PhotoViewer media-action gate that directly checks Message.noforwards.
         PhotoViewerG2Fingerprint.method.implementation!!.instructions
             .withIndex()
-            .first { (_, instruction) ->
+            .firstOrNull { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                 ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
-            }.let { match ->
+            }?.let { match ->
                 val reg = (match.value as TwoRegisterInstruction).registerA
                 PhotoViewerG2Fingerprint.method.replaceInstruction(
                     match.index,
@@ -166,12 +166,12 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // Bypass the ChatActivity save-to-downloads gate that directly checks Message.noforwards.
         ChatActivitySaveToDownloadsGateFingerprint.method.implementation!!.instructions
             .withIndex()
-            .first { (_, instruction) ->
+            .firstOrNull { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                 ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
-            }.let { match ->
+            }?.let { match ->
                 val reg = (match.value as TwoRegisterInstruction).registerA
                 ChatActivitySaveToDownloadsGateFingerprint.method.replaceInstruction(
                     match.index,
@@ -182,12 +182,12 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // Bypass FileLoader's direct Message.noforwards save-to-public-storage gate.
         FileLoaderCanSaveToPublicStorageFingerprint.method.implementation!!.instructions
             .withIndex()
-            .first { (_, instruction) ->
+            .firstOrNull { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                 ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
-            }.let { match ->
+            }?.let { match ->
                 val reg = (match.value as TwoRegisterInstruction).registerA
                 FileLoaderCanSaveToPublicStorageFingerprint.method.replaceInstruction(
                     match.index,
@@ -223,7 +223,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // Remove only the per-message noforwards gate; preserve other forwarding restrictions.
         val noForwardsCheck = CanForwardMessageFingerprint.method.implementation!!.instructions
             .withIndex()
-            .first { (_, instruction) ->
+            .firstOrNull { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                 ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
