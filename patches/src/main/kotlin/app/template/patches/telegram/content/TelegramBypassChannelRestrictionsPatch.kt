@@ -15,6 +15,7 @@ import app.template.patches.telegram.GetRestrictionReasonFingerprint
 import app.template.patches.telegram.LoadFullChatErrorFingerprint
 import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
 import app.template.patches.telegram.ChatActivityHasSelectedNoforwardsMessageFingerprint
+import app.template.patches.telegram.ChatActivityShowTextSelectionHintFingerprint
 import app.template.patches.telegram.CanForwardMessageFingerprint
 import app.template.patches.telegram.MessageObjectNeedDrawShareButtonFingerprint
 import app.template.patches.telegram.PhotoViewerC2Fingerprint
@@ -153,6 +154,23 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             }.let { match ->
                 val reg = (match.value as TwoRegisterInstruction).registerA
                 FileLoaderCanSaveToPublicStorageFingerprint.method.replaceInstruction(
+                    match.index,
+                    "const/4 v$reg, 0x0",
+                )
+            }
+
+        // Bypass the text-selection hint no-forwards gates without disabling the hint itself.
+        ChatActivityShowTextSelectionHintFingerprint.method.implementation!!.instructions
+            .withIndex()
+            .filter { (_, instruction) ->
+                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&
+                    ref.name == "noforwards" &&
+                    instruction.opcode.name == "IGET_BOOLEAN"
+            }
+            .forEach { match ->
+                val reg = (match.value as TwoRegisterInstruction).registerA
+                ChatActivityShowTextSelectionHintFingerprint.method.replaceInstruction(
                     match.index,
                     "const/4 v$reg, 0x0",
                 )
