@@ -298,7 +298,7 @@ val CheckCanOpenChat2Fingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "checkCanOpenChat",
     returnType = "Z",
-    parameters = listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/BaseFragment;"),
+    parameters = listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;"),
 )
 
 val CheckCanOpenChat3Fingerprint = Fingerprint(
