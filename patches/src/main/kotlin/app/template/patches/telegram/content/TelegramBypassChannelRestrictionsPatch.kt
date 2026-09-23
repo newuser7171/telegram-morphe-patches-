@@ -19,6 +19,7 @@ import app.template.patches.telegram.CanForwardMessageFingerprint
 import app.template.patches.telegram.MessageObjectNeedDrawShareButtonFingerprint
 import app.template.patches.telegram.PhotoViewerC2Fingerprint
 import app.template.patches.telegram.PhotoViewerG2Fingerprint
+import app.template.patches.telegram.FileLoaderCanSaveToPublicStorageFingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsLongFingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsChatFingerprint
 import app.template.patches.telegram.MessagesControllerIsPeerNoForwardsFingerprint
@@ -135,6 +136,23 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             }.let { match ->
                 val reg = (match.value as TwoRegisterInstruction).registerA
                 PhotoViewerG2Fingerprint.method.replaceInstruction(
+                    match.index,
+                    "const/4 v$reg, 0x0",
+                )
+            }
+
+
+        // Bypass FileLoader's direct Message.noforwards save-to-public-storage gate.
+        FileLoaderCanSaveToPublicStorageFingerprint.method.implementation!!.instructions
+            .withIndex()
+            .first { (_, instruction) ->
+                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
+                    ref.name == "noforwards" &&
+                    instruction.opcode.name == "IGET_BOOLEAN"
+            }.let { match ->
+                val reg = (match.value as TwoRegisterInstruction).registerA
+                FileLoaderCanSaveToPublicStorageFingerprint.method.replaceInstruction(
                     match.index,
                     "const/4 v$reg, 0x0",
                 )
