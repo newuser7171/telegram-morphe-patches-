@@ -1,3 +1,11 @@
+## [1.0.36](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.35...v1.0.36) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* bypass peer-level no-forwards gates ([ca80e9a](https://github.com/cingxcong/telegram-morphe-patches-/commit/ca80e9aeee39ab6f905af840dc3919d36db88a9f))
+* bypass per-message no-forwards gate ([fcbcca9](https://github.com/cingxcong/telegram-morphe-patches-/commit/fcbcca948dd76def59cf774a1d59b1e568135e79))
+* compile no-forwards bypass imports ([350d534](https://github.com/cingxcong/telegram-morphe-patches-/commit/350d5348a2f4590fffedd12ab28d899898d91161))
+
 ## [1.0.35](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.34...v1.0.35) (2026-09-23)
 
 ### 🐛 Bug Fixes
