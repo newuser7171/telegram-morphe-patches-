@@ -236,8 +236,13 @@ val MessageObjectIsHiddenSensitiveFingerprint = Fingerprint(
 
 val CreateNoAccessAlertFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/Components/d5;",
-    name = "createNoAccessAlert",
+    name = "F",
     returnType = "Lorg/telegram/ui/ActionBar/AlertDialog\$Builder;",
+    parameters = listOf(
+        "Landroid/content/Context;",
+        "Ljava/lang/String;",
+        "Ljava/lang/String;",
+    ),
 )
 
 val LoadFullChatErrorFingerprint = Fingerprint(
