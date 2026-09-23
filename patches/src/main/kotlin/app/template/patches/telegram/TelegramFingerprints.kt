@@ -181,6 +181,13 @@ val ChatActivityHasSelectedNoforwardsMessageFingerprint = Fingerprint(
     returnType = "Z",
 )
 
+val ChatActivityShowTextSelectionHintFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/ui/po;",
+    name = "Sb",
+    returnType = "V",
+    parameters = listOf("Lorg/telegram/messenger/MessageObject;"),
+)
+
 // ─── Channel restrictions ──────────────────────────────────────────────────────
 
 val GetRestrictionReasonFingerprint = Fingerprint(
