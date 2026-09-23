@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.5.0...v1.6.0) (2026-09-23)
+
+### ✨ New Features
+
+* bypass ChatActivity save-to-downloads no-forwards gate ([1cde17f](https://github.com/cingxcong/telegram-morphe-patches-/commit/1cde17fbdf1e674e4ef8f86354b241b99c98d064))
+* target ChatActivity save-to-downloads no-forwards gate ([9e36c41](https://github.com/cingxcong/telegram-morphe-patches-/commit/9e36c410ec697127d7d1d955b175fc7cd7802c25))
+
 ## [1.5.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.4.0...v1.5.0) (2026-09-23)
 
 ### 🐛 Bug Fixes
