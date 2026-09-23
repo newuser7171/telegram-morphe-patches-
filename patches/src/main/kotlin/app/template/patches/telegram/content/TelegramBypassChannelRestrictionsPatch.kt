@@ -14,6 +14,7 @@ import app.template.patches.telegram.CreateNoAccessAlertFingerprint
 import app.template.patches.telegram.GetRestrictionReasonFingerprint
 import app.template.patches.telegram.LoadFullChatErrorFingerprint
 import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
+import app.template.patches.telegram.ChatActivityHasSelectedNoforwardsMessageFingerprint
 import app.template.patches.telegram.MessageObjectIsSensitiveFingerprint
 import app.template.patches.telegram.MessageObjectUpdateMessageTextFingerprint
 import app.template.patches.telegram.MessagesControllerIsSensitiveFingerprint
@@ -76,6 +77,14 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
                 }
             }
         }
+
+        // ── No-forwards ───────────────────────────────────────────────────────
+        // Telegram gates forwarding of selected messages through po.Z8(), which
+        // returns true when any selected MessageObject has messageOwner.noforwards.
+        ChatActivityHasSelectedNoforwardsMessageFingerprint.method.addInstructions(0, """
+            const/4 v0, 0x0
+            return v0
+        """)
 
         // ── Sensitive content ─────────────────────────────────────────────────
         SetContentSettingsFingerprint.method.addInstructions(0, "const/4 p1, 0x1")
