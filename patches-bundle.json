@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T16:25:01",
-  "description": "## [1.0.21](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.20...v1.0.21) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert typing target is present ([7006de4](https://github.com/cingxcong/telegram-morphe-patches-/commit/7006de4a137ed73a1e7f68951eef71e715addb86))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.21/patches-1.0.21.mpp",
+  "created_at": "2026-09-23T16:28:04",
+  "description": "## [1.0.22](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.21...v1.0.22) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert download boost target is present ([13912bd](https://github.com/cingxcong/telegram-morphe-patches-/commit/13912bd570ab16c6c93f48d2949da41bc6fb8e85))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.22/patches-1.0.22.mpp",
   "signature_download_url": "",
-  "version": "1.0.21"
+  "version": "1.0.22"
 }
