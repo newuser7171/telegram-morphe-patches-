@@ -113,7 +113,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             .withIndex()
             .first { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
             }.let { match ->
@@ -129,7 +129,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             .withIndex()
             .first { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
             }.let { match ->
