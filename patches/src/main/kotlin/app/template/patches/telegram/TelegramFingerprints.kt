@@ -593,7 +593,8 @@ val SharedConfigGetDevicePerformanceClassFingerprint = Fingerprint(
     returnType = "I",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
 )
-\nval MessagesControllerSponsoredMessagesResponseFingerprint = Fingerprint(
+
+val MessagesControllerSponsoredMessagesResponseFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     returnType = "V",
     custom = { method, _ ->
