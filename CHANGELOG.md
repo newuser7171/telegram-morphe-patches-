@@ -1,3 +1,9 @@
+## [1.8.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.0...v1.8.1) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* use resolved no-access alert fingerprint ([4f0d78a](https://github.com/cingxcong/telegram-morphe-patches-/commit/4f0d78ae72d86668f5f820b9da6ec09b289d6427))
+
 ## [1.8.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.7.1...v1.8.0) (2026-09-23)
 
 ### ✨ New Features
