@@ -730,6 +730,14 @@ val PhotoViewerC2Fingerprint = Fingerprint(
     parameters = listOf("I", "Z", "Z", "Z"),
 )
 
+val FileLoaderCanSaveToPublicStorageFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/messenger/FileLoader;",
+    name = "canSaveToPublicStorage",
+    returnType = "Z",
+    accessFlags = listOf(AccessFlags.PRIVATE),
+    parameters = listOf("Ljava/lang/Object;"),
+)
+
 val PhotoViewerG2Fingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/PhotoViewer;",
     name = "G2",
