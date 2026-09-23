@@ -414,14 +414,14 @@ val IsRoundOnceFingerprint = Fingerprint(
 val SendSecretMediaDeleteFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "N4",
-    returnType = "Ljava/lang/Runnable;",
-    parameters = listOf("Lorg/telegram/messenger/MessageObject;"),
+    returnType = "Lorg/telegram/messenger/video/k;",
+    parameters = listOf("Lorg/telegram/ui/po;", "Lorg/telegram/messenger/MessageObject;"),
 )
 
 val SendSecretMessageReadFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "db",
-    returnType = "Ljava/lang/Runnable;",
+    returnType = "Lorg/telegram/ui/ef;",
     parameters = listOf("Lorg/telegram/messenger/MessageObject;", "Z"),
 )
 
