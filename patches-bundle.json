@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T20:34:46",
-  "description": "## [1.4.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.3.0...v1.4.0) (2026-09-23)\n\n### ✨ New Features\n\n* bypass FileLoader no-forwards save gate ([898c60d](https://github.com/cingxcong/telegram-morphe-patches-/commit/898c60d485423526531e3d1db018b3cbd6d351a8))\n* target FileLoader no-forwards gate ([3ce52a1](https://github.com/cingxcong/telegram-morphe-patches-/commit/3ce52a10958fd99ea9bdbb6cc83e289247a223ca))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.4.0/patches-1.4.0.mpp",
+  "created_at": "2026-09-23T20:45:16",
+  "description": "## [1.5.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.4.0...v1.5.0) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* escape ChatActivity text selection fingerprint type ([0ff752f](https://github.com/cingxcong/telegram-morphe-patches-/commit/0ff752fd384eb06e0d068e2eed40728d8e832865))\n\n### ✨ New Features\n\n* bypass ChatActivity text selection no-forwards gate ([c332997](https://github.com/cingxcong/telegram-morphe-patches-/commit/c332997374f788ffbc54e43da4da1960e55374db))\n* target ChatActivity text selection no-forwards gate ([aa5310e](https://github.com/cingxcong/telegram-morphe-patches-/commit/aa5310e333ec7929ad3eec43dfeaa86cc53ac927))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.5.0/patches-1.5.0.mpp",
   "signature_download_url": "",
-  "version": "1.4.0"
+  "version": "1.5.0"
 }

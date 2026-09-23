@@ -1,3 +1,14 @@
+## [1.5.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.4.0...v1.5.0) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* escape ChatActivity text selection fingerprint type ([0ff752f](https://github.com/cingxcong/telegram-morphe-patches-/commit/0ff752fd384eb06e0d068e2eed40728d8e832865))
+
+### ✨ New Features
+
+* bypass ChatActivity text selection no-forwards gate ([c332997](https://github.com/cingxcong/telegram-morphe-patches-/commit/c332997374f788ffbc54e43da4da1960e55374db))
+* target ChatActivity text selection no-forwards gate ([aa5310e](https://github.com/cingxcong/telegram-morphe-patches-/commit/aa5310e333ec7929ad3eec43dfeaa86cc53ac927))
+
 ## [1.4.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.3.0...v1.4.0) (2026-09-23)
 
 ### ✨ New Features
