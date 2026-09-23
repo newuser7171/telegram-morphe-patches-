@@ -8,9 +8,6 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.telegram.CheckChannelErrorFingerprint
-import app.template.patches.telegram.CheckCanOpenChat2Fingerprint
-import app.template.patches.telegram.CheckCanOpenChat3Fingerprint
-import app.template.patches.telegram.CheckCanOpenChat4Fingerprint
 import app.template.patches.telegram.CheckSensitiveFingerprint
 import app.template.patches.telegram.GetChannelDiffErrorFingerprint
 import app.template.patches.telegram.CreateNoAccessAlertFingerprint
@@ -124,15 +121,19 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         GetChannelDiffErrorFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // ── Chat open permission ──────────────────────────────────────────────
-        listOf(
-            CheckCanOpenChat2Fingerprint,
-            CheckCanOpenChat3Fingerprint,
-            CheckCanOpenChat4Fingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.methodOrNull?.addInstructions(0, """
-                const/4 v0, 0x1
-                return v0
-            """)
-        }
+        // R8 changes the parameter descriptors of checkCanOpenChat across Telegram
+        // builds. Resolve the mutable class directly instead of relying on three
+        // fragile fingerprints.
+        mutableClassDefBy("Lorg/telegram/messenger/MessagesController;").methods
+            .filter {
+                it.name == "checkCanOpenChat" &&
+                    it.returnType == "Z"
+            }
+            .forEach {
+                it.addInstructions(0, """
+                    const/4 v0, 0x1
+                    return v0
+                """)
+            }
     }
 }
