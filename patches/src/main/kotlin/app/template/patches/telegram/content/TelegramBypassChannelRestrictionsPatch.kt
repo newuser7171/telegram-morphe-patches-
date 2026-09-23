@@ -16,6 +16,7 @@ import app.template.patches.telegram.LoadFullChatErrorFingerprint
 import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
 import app.template.patches.telegram.ChatActivityHasSelectedNoforwardsMessageFingerprint
 import app.template.patches.telegram.CanForwardMessageFingerprint
+import app.template.patches.telegram.MessageObjectNeedDrawShareButtonFingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsLongFingerprint
 import app.template.patches.telegram.MessagesControllerIsChatNoForwardsChatFingerprint
 import app.template.patches.telegram.MessagesControllerIsPeerNoForwardsFingerprint
@@ -105,7 +106,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             """)
         }
 
-        // ── No-forwards ───────────────────────────────────────────────────────
+        // Bypass the share-button gate that directly checks Message.noforwards.\n        MessageObjectNeedDrawShareButtonFingerprint.method.implementation!!.instructions\n            .withIndex()\n            .first { (_, instruction) ->\n                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference\n                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&\n                    ref.name == "noforwards" &&\n                    instruction.opcode.name == "IGET_BOOLEAN"\n            }.let { match ->\n                val reg = getInstruction<TwoRegisterInstruction>(match.index).registerA\n                MessageObjectNeedDrawShareButtonFingerprint.method.replaceInstruction(\n                    match.index,\n                    "const/4 v$reg, 0x0",\n                )\n            }\n\n        // ── No-forwards ───────────────────────────────────────────────────────
         // Telegram gates forwarding of selected messages through po.Z8(), which
         // returns true when any selected MessageObject has messageOwner.noforwards.
         ChatActivityHasSelectedNoforwardsMessageFingerprint.method.addInstructions(0, """
