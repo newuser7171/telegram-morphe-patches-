@@ -16,6 +16,13 @@ import app.template.patches.telegram.LoadFullChatErrorFingerprint
 import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
 import app.template.patches.telegram.ChatActivityHasSelectedNoforwardsMessageFingerprint
 import app.template.patches.telegram.CanForwardMessageFingerprint
+import app.template.patches.telegram.MessagesControllerIsChatNoForwardsLongFingerprint
+import app.template.patches.telegram.MessagesControllerIsChatNoForwardsChatFingerprint
+import app.template.patches.telegram.MessagesControllerIsPeerNoForwardsFingerprint
+import app.template.patches.telegram.MessagesControllerIsUserNoForwardsLongFingerprint
+import app.template.patches.telegram.MessagesControllerIsUserNoForwardsUserFullFingerprint
+import app.template.patches.telegram.ChatActivityIsPeerNoForwardsFingerprint
+import app.template.patches.telegram.ProfileActivityIsPeerNoForwardsFingerprint
 import app.template.patches.telegram.MessageObjectIsSensitiveFingerprint
 import app.template.patches.telegram.MessageObjectUpdateMessageTextFingerprint
 import app.template.patches.telegram.MessagesControllerIsSensitiveFingerprint
@@ -111,7 +118,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             .withIndex()
             .first { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
-                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC$Message;" &&
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
             }
