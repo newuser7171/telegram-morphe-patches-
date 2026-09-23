@@ -15,6 +15,7 @@ import app.template.patches.telegram.GetRestrictionReasonFingerprint
 import app.template.patches.telegram.LoadFullChatErrorFingerprint
 import app.template.patches.telegram.MessageObjectIsHiddenSensitiveFingerprint
 import app.template.patches.telegram.ChatActivityHasSelectedNoforwardsMessageFingerprint
+import app.template.patches.telegram.CanForwardMessageFingerprint
 import app.template.patches.telegram.MessageObjectIsSensitiveFingerprint
 import app.template.patches.telegram.MessageObjectUpdateMessageTextFingerprint
 import app.template.patches.telegram.MessagesControllerIsSensitiveFingerprint
@@ -24,6 +25,8 @@ import app.template.patches.telegram.ShowSensitiveContentFingerprint
 import app.template.patches.telegram.signature.telegramSpoofDependency
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 val telegramBypassChannelRestrictionsPatch = bytecodePatch(
@@ -85,6 +88,17 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             const/4 v0, 0x0
             return v0
         """)
+
+        // Remove only the per-message noforwards gate; preserve other forwarding restrictions.
+        val noForwardsCheck = CanForwardMessageFingerprint.method.implementation!!.instructions
+            .withIndex()
+            .first { (_, instruction) ->
+                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC$Message;" &&
+                    ref.name == "noforwards" &&
+                    instruction.opcode.name == "IGET_BOOLEAN"
+            }
+        CanForwardMessageFingerprint.method.replaceInstruction(noForwardsCheck.index, "nop")
 
         // ── Sensitive content ─────────────────────────────────────────────────
         SetContentSettingsFingerprint.method.addInstructions(0, "const/4 p1, 0x1")
