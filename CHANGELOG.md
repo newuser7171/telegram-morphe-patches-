@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.2...v1.0.3) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* match anti-delete parameter types elementwise ([4b81b3e](https://github.com/cingxcong/telegram-morphe-patches-/commit/4b81b3e06b2085a2d29c70f4f9d026c84142950a))
+
 ## [1.0.2](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.1...v1.0.2) (2026-09-23)
 
 ### 🐛 Bug Fixes
