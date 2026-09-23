@@ -39,6 +39,21 @@ val StoriesControllerIsPremiumFingerprint = Fingerprint(
     parameters = listOf("J"),
 )
 
+// Telegram 12.10.3 R8 inlines StoriesController.isPremium(long) into its
+// stories-priority comparator. The released APK has no isPremium(J)Z method.
+val StoriesControllerPremiumComparatorFingerprint = Fingerprint(
+    definingClass = "Lah/x7;",
+    name = "compare",
+    returnType = "I",
+    parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
+    custom = { method, _ ->
+        method.implementation?.instructions?.any { instr ->
+            val ref = (instr as? ReferenceInstruction)?.reference as? com.android.tools.smali.dexlib2.iface.reference.FieldReference
+            ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$User;" && ref.name == "premium"
+        } == true
+    },
+)
+
 // ─── Integrity bypass ─────────────────────────────────────────────────────────
 
 val AndroidUtilitiesGetCertFingerprintFingerprint = Fingerprint(
