@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T16:44:40",
-  "description": "## [1.0.24](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.23...v1.0.24) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert auto update targets are concrete ([57ce4f9](https://github.com/cingxcong/telegram-morphe-patches-/commit/57ce4f9fca056fd7e94e15d868eda5f311c8dc10))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.24/patches-1.0.24.mpp",
+  "created_at": "2026-09-23T16:48:05",
+  "description": "## [1.0.25](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.24...v1.0.25) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert disappearing media targets are concrete ([02c3a24](https://github.com/cingxcong/telegram-morphe-patches-/commit/02c3a24601a25511d18de4b799cd1c70f26a4bf9))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.25/patches-1.0.25.mpp",
   "signature_download_url": "",
-  "version": "1.0.24"
+  "version": "1.0.25"
 }

@@ -1,3 +1,9 @@
+## [1.0.25](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.24...v1.0.25) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert disappearing media targets are concrete ([02c3a24](https://github.com/cingxcong/telegram-morphe-patches-/commit/02c3a24601a25511d18de4b799cd1c70f26a4bf9))
+
 ## [1.0.24](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.23...v1.0.24) (2026-09-23)
 
 ### 🐛 Bug Fixes
