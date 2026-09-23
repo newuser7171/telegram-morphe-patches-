@@ -42,7 +42,7 @@ If a patch fails to match, please open an issue and include:
 Please do not post private account data, authentication tokens, or modified APKs containing personal information.
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.23](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.0.23)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;41 patches total
+> **[v1.0.24](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.0.24)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;41 patches total
 <details open>
 <summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;14 patches</summary>
 <br>

@@ -1,3 +1,9 @@
+## [1.0.24](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.23...v1.0.24) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert auto update targets are concrete ([57ce4f9](https://github.com/cingxcong/telegram-morphe-patches-/commit/57ce4f9fca056fd7e94e15d868eda5f311c8dc10))
+
 ## [1.0.23](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.22...v1.0.23) (2026-09-23)
 
 ### 🐛 Bug Fixes
