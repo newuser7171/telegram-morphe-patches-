@@ -107,7 +107,22 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             """)
         }
 
-        // Bypass the share-button gate that directly checks Message.noforwards.\n        MessageObjectNeedDrawShareButtonFingerprint.method.implementation!!.instructions\n            .withIndex()\n            .first { (_, instruction) ->\n                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference\n                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&\n                    ref.name == "noforwards" &&\n                    instruction.opcode.name == "IGET_BOOLEAN"\n            }.let { match ->\n                val reg = getInstruction<TwoRegisterInstruction>(match.index).registerA\n                MessageObjectNeedDrawShareButtonFingerprint.method.replaceInstruction(\n                    match.index,\n                    "const/4 v$reg, 0x0",\n                )\n            }\n\n        // ── No-forwards ───────────────────────────────────────────────────────
+        // Bypass the share-button gate that directly checks Message.noforwards.\n        MessageObjectNeedDrawShareButtonFingerprint.method.implementation!!.instructions\n        // Bypass the PhotoViewer media-action gate that directly checks Message.noforwards.\n        // Keep the surrounding media/viewer logic unchanged.\n        Fingerprint(
+            definingClass = "Lorg/telegram/ui/PhotoViewer;",
+            name = "G2",
+            returnType = "V",
+            parameters = listOf("I", "Z", "Z", "Z"),
+        ).method.implementation!!.instructions
+            .withIndex()
+            .first { (_, instruction) ->
+                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&
+                    ref.name == "noforwards" &&
+                    instruction.opcode.name == "IGET_BOOLEAN"
+            }.let { match ->
+                val reg = getInstruction<TwoRegisterInstruction>(match.index).registerA
+                match.method.replaceInstruction(match.index, "const/4 v$reg, 0x0")
+            }\n\n            .withIndex()\n            .first { (_, instruction) ->\n                val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference\n                ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\\$Message;" &&\n                    ref.name == "noforwards" &&\n                    instruction.opcode.name == "IGET_BOOLEAN"\n            }.let { match ->\n                val reg = getInstruction<TwoRegisterInstruction>(match.index).registerA\n                MessageObjectNeedDrawShareButtonFingerprint.method.replaceInstruction(\n                    match.index,\n                    "const/4 v$reg, 0x0",\n                )\n            }\n\n        // ── No-forwards ───────────────────────────────────────────────────────
         // Telegram gates forwarding of selected messages through po.Z8(), which
         // returns true when any selected MessageObject has messageOwner.noforwards.
         ChatActivityHasSelectedNoforwardsMessageFingerprint.method.addInstructions(0, """
