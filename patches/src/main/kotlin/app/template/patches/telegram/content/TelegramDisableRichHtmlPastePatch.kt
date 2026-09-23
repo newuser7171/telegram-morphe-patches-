@@ -25,7 +25,7 @@ val telegramDisableRichHtmlPastePatch = bytecodePatch(
 
     execute {
         Telegram12_10_3RichPasteFingerprint.methodOrNull?.apply {
-            implementation!!.instructions
+            val richHtmlBranchMatches = implementation!!.instructions
                 .mapIndexedNotNull { index, instruction ->
                     if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@mapIndexedNotNull null
                     val reference = (instruction as? ReferenceInstruction)?.reference as? MethodReference
@@ -33,13 +33,19 @@ val telegramDisableRichHtmlPastePatch = bytecodePatch(
                     if (reference.definingClass == "Landroid/content/ClipDescription;" &&
                         reference.name == "hasMimeType" &&
                         reference.parameterTypes == listOf("Ljava/lang/String;") &&
-                        index + 1 < implementation!!.instructions.size
+                        index + 1 < implementation!!.instructions.size &&
+                        implementation!!.instructions[index + 1] is OneRegisterInstruction
                     ) index else null
                 }
+
+            check(richHtmlBranchMatches.isNotEmpty()) {
+                "Expected at least one ClipDescription.hasMimeType(String) branch in Telegram 12.10.3 rich-paste handler"
+            }
+
+            richHtmlBranchMatches
                 .reversed()
                 .forEach { index ->
-                    val next = implementation!!.instructions[index + 1]
-                    val register = (next as? OneRegisterInstruction)?.registerA ?: return@forEach
+                    val register = (implementation!!.instructions[index + 1] as OneRegisterInstruction).registerA
                     replaceInstruction(index + 1, "const/4 v$register, 0x0")
                 }
         }
