@@ -1,18 +1,13 @@
 package app.template.patches.telegram.content
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.mutableClassDefBy
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
-import app.template.patches.shared.Constants.TELEGRAM_PLUS_COMPATIBILITY
-import app.template.patches.shared.Constants.TELEGRAM_WEB_COMPATIBILITY
-import app.template.patches.telegram.CheckCanOpenChat2Fingerprint
-import app.template.patches.telegram.CheckCanOpenChat3Fingerprint
-import app.template.patches.telegram.CheckCanOpenChat4Fingerprint
-import app.template.patches.telegram.CreateNoAccessAlertFingerprint
 import app.template.patches.telegram.CheckChannelErrorFingerprint
 import app.template.patches.telegram.CheckSensitiveFingerprint
 import app.template.patches.telegram.GetChannelDiffErrorFingerprint
@@ -35,7 +30,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
     description = "Allows opening, viewing, saving and forwarding content from restricted, " +
         "sensitive, and copyright-restricted channels.",
 ) {
-    compatibleWith(TELEGRAM_COMPATIBILITY, TELEGRAM_WEB_COMPATIBILITY, TELEGRAM_PLUS_COMPATIBILITY)
+    compatibleWith(TELEGRAM_COMPATIBILITY)
     dependsOn(telegramSpoofDependency())
 
     execute {
@@ -110,7 +105,15 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // ── Channel access errors ─────────────────────────────────────────────
         ShowCantOpenAlertFingerprint.method.addInstructions(0, "return-void")
         CheckChannelErrorFingerprint.method.addInstructions(0, "return-void")
-        CreateNoAccessAlertFingerprint.method.addInstructions(0, """
+        mutableClassDefBy("Lorg/telegram/ui/Components/d5;").methods.single {
+            it.name == "F" &&
+                it.returnType == "Lorg/telegram/ui/ActionBar/AlertDialog\$Builder;" &&
+                it.parameterTypes == listOf(
+                    "Landroid/content/Context;",
+                    "Ljava/lang/String;",
+                    "Ljava/lang/String;",
+                )
+        }.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
@@ -118,15 +121,19 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         GetChannelDiffErrorFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // ── Chat open permission ──────────────────────────────────────────────
-        listOf(
-            CheckCanOpenChat2Fingerprint,
-            CheckCanOpenChat3Fingerprint,
-            CheckCanOpenChat4Fingerprint,
-        ).forEach {
-            it.method.addInstructions(0, """
-                const/4 v0, 0x1
-                return v0
-            """)
-        }
+        val messagesController = mutableClassDefBy("Lorg/telegram/messenger/MessagesController;")
+        messagesController.methods
+            .filter { it.name == "checkCanOpenChat" && it.returnType == "Z" }
+            .filter {
+                it.parameterTypes == listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;") ||
+                    it.parameterTypes == listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;", "Lorg/telegram/messenger/MessageObject;") ||
+                    it.parameterTypes == listOf("Landroid/os/Bundle;", "Lorg/telegram/ui/ActionBar/r2;", "Lorg/telegram/messenger/MessageObject;", "Lfe/e;")
+            }
+            .forEach {
+                it.addInstructions(0, """
+                    const/4 v0, 0x1
+                    return v0
+                """)
+            }
     }
 }
