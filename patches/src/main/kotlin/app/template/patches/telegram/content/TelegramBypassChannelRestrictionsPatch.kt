@@ -117,7 +117,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
             }.let { match ->
-                val reg = getInstruction<TwoRegisterInstruction>(match.index).registerA
+                val reg = (match.value as TwoRegisterInstruction).registerA
                 MessageObjectNeedDrawShareButtonFingerprint.method.replaceInstruction(
                     match.index,
                     "const/4 v$reg, 0x0",
@@ -133,7 +133,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
             }.let { match ->
-                val reg = getInstruction<TwoRegisterInstruction>(match.index).registerA
+                val reg = (match.value as TwoRegisterInstruction).registerA
                 PhotoViewerG2Fingerprint.method.replaceInstruction(
                     match.index,
                     "const/4 v$reg, 0x0",
