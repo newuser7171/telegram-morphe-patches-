@@ -604,25 +604,25 @@ val MessagesControllerIsUserNoForwardsUserFullFingerprint = Fingerprint(
 
 // ─── Channel switching (Killergram / NoAds) ───────────────────────────────────
 
-// Web: getNextUnreadDialog()Dialog (no params)
-// Plus: getNextUnreadDialog(JIIZ[I)Dialog (5 params — different signature)
-// Omit parameters for cross-variant compat; method name + returnType + PUBLIC STATIC is unique
+// Telegram 12.10.3 obfuscation:
+// getNextUnreadDialog -> c(J,I,I,Z,[I): Dialog
 val ChatPullingDownDrawableGetNextFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/mq;",
-    name = "getNextUnreadDialog",
+    name = "c",
     returnType = "Lorg/telegram/tgnet/TLRPC\$Dialog;",
+    parameters = listOf("J", "I", "I", "Z", "[I"),
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
 )
 
 val ChatPullingDownDrawableDrawBottomPanelFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/mq;",
-    name = "drawBottomPanel",
+    name = "b",
     returnType = "V",
 )
 
 val ChatPullingDownDrawableNeedDrawBottomPanelFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/mq;",
-    name = "needDrawBottomPanel",
+    name = "e",
     returnType = "Z",
 )
 
