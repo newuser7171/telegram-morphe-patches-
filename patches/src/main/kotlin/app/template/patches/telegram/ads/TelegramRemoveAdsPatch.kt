@@ -27,16 +27,16 @@ val telegramRemoveAdsPatch = bytecodePatch(
 
     execute {
         // Block sponsored messages from being injected into chat list
-        ChatActivityAddSponsoredMessagesFingerprint.method.addInstructions(0, "return-void")
+        ChatActivityAddSponsoredMessagesFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // Return 0 count so UI never shows a sponsored message slot
-        ChatActivityGetSponsoredMessagesCountFingerprint.method.addInstructions(0, """
+        ChatActivityGetSponsoredMessagesCountFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x0
             return v0
         """)
 
         // Report sponsored as disabled at controller level
-        MessagesControllerIsSponsoredDisabledFingerprint.method.addInstructions(0, """
+        MessagesControllerIsSponsoredDisabledFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x1
             return v0
         """)
@@ -48,13 +48,13 @@ val telegramRemoveAdsPatch = bytecodePatch(
         """)
 
         // No message object is ever marked as sponsored
-        MessageObjectIsSponsoredFingerprint.method.addInstructions(0, """
+        MessageObjectIsSponsoredFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x0
             return v0
         """)
 
         // Prevent video ad preloading
-        VideoAdsLoadFingerprint.method.addInstructions(0, "return-void")
+        VideoAdsLoadFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // Plus-only: AdsController.adsDisabled() → true (no-op on messenger/web)
         AdsControllerAdsDisabledFingerprint.methodOrNull?.addInstructions(0, """
