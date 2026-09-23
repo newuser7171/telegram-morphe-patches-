@@ -81,6 +81,23 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
             }
         }
 
+        // ── Peer-level no-forwards ───────────────────────────────────────────
+        // Disable chat/user-level forwarding policy gates as well.
+        listOf(
+            MessagesControllerIsChatNoForwardsLongFingerprint,
+            MessagesControllerIsChatNoForwardsChatFingerprint,
+            MessagesControllerIsPeerNoForwardsFingerprint,
+            MessagesControllerIsUserNoForwardsLongFingerprint,
+            MessagesControllerIsUserNoForwardsUserFullFingerprint,
+            ChatActivityIsPeerNoForwardsFingerprint,
+            ProfileActivityIsPeerNoForwardsFingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.methodOrNull?.addInstructions(0, """
+                const/4 v0, 0x0
+                return v0
+            """)
+        }
+
         // ── No-forwards ───────────────────────────────────────────────────────
         // Telegram gates forwarding of selected messages through po.Z8(), which
         // returns true when any selected MessageObject has messageOwner.noforwards.
