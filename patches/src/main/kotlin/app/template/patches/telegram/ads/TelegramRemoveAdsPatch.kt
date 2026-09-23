@@ -26,6 +26,24 @@ val telegramRemoveAdsPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        listOf(
+            ChatActivityAddSponsoredMessagesFingerprint,
+            ChatActivityGetSponsoredMessagesCountFingerprint,
+            MessagesControllerIsSponsoredDisabledFingerprint,
+            MessagesControllerGetSponsoredMessagesFingerprint,
+            MessageObjectIsSponsoredFingerprint,
+            VideoAdsLoadFingerprint,
+            AdsControllerAdsDisabledFingerprint,
+            AdsInstanceLoadAdsFingerprint,
+            AdsInstanceLoadNativeAdFingerprint,
+        ).forEach {
+            it.methodOrNull?.let { method ->
+                check(method.implementation != null) {
+                    "Expected concrete implementation for ${method.definingClass}->${method.name}"
+                }
+            }
+        }
+
         // Block sponsored messages from being injected into chat list
         ChatActivityAddSponsoredMessagesFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
