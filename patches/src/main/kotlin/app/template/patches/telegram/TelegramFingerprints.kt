@@ -191,6 +191,7 @@ val ShowCantOpenAlertFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "showCantOpenAlert",
     returnType = "V",
+    parameters = listOf("Lorg/telegram/ui/ActionBar/r2;", "Ljava/lang/String;"),
 )
 
 val CheckChannelErrorFingerprint = Fingerprint(
@@ -205,7 +206,7 @@ val CheckSensitiveFingerprint = Fingerprint(
     name = "checkSensitive",
     returnType = "V",
     parameters = listOf(
-        "Lorg/telegram/ui/ActionBar/BaseFragment;",
+        "Lorg/telegram/ui/ActionBar/r2;",
         "J",
         "Ljava/lang/Runnable;",
         "Ljava/lang/Runnable;",
@@ -301,7 +302,7 @@ val CheckCanOpenChat3Fingerprint = Fingerprint(
     returnType = "Z",
     parameters = listOf(
         "Landroid/os/Bundle;",
-        "Lorg/telegram/ui/ActionBar/BaseFragment;",
+        "Lorg/telegram/ui/ActionBar/r2;",
         "Lorg/telegram/messenger/MessageObject;",
     ),
 )
