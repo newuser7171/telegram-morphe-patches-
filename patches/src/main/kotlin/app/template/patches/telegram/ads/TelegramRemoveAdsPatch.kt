@@ -13,6 +13,7 @@ import app.template.patches.telegram.ChatActivityAddSponsoredMessagesFingerprint
 import app.template.patches.telegram.ChatActivityGetSponsoredMessagesCountFingerprint
 import app.template.patches.telegram.MessageObjectIsSponsoredFingerprint
 import app.template.patches.telegram.MessagesControllerGetSponsoredMessagesFingerprint
+import app.template.patches.telegram.MessagesControllerSponsoredMessagesResponseFingerprint
 import app.template.patches.telegram.MessagesControllerIsSponsoredDisabledFingerprint
 import app.template.patches.telegram.VideoAdsLoadFingerprint
 
@@ -31,6 +32,7 @@ val telegramRemoveAdsPatch = bytecodePatch(
             ChatActivityGetSponsoredMessagesCountFingerprint,
             MessagesControllerIsSponsoredDisabledFingerprint,
             MessagesControllerGetSponsoredMessagesFingerprint,
+            MessagesControllerSponsoredMessagesResponseFingerprint,
             MessageObjectIsSponsoredFingerprint,
             VideoAdsLoadFingerprint,
             AdsControllerAdsDisabledFingerprint,
@@ -64,6 +66,9 @@ val telegramRemoveAdsPatch = bytecodePatch(
             const/4 v0, 0x0
             return-object v0
         """)
+
+        // Drop sponsored responses before MessageObject instances are created
+        MessagesControllerSponsoredMessagesResponseFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // No message object is ever marked as sponsored
         MessageObjectIsSponsoredFingerprint.methodOrNull?.addInstructions(0, """
