@@ -1,6 +1,7 @@
 package app.template.patches.telegram.content
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.util.proxy.mutableClassDefBy
 import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.telegram.signature.telegramSpoofDependency
