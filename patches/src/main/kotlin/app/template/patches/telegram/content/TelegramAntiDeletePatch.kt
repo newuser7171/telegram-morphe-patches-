@@ -18,9 +18,28 @@ val telegramAntiDeletePatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
-        // markMessagesAsDeleted(JIZZ) — p4=Z is the async/local-only flag.
+        val storageClass = mutableClassDefBy(
+            classDefBy("Lorg/telegram/messenger/MessagesStorage;")
+        )
+        val markMessagesAsDeleted = storageClass.methods.filter {
+            it.name == "markMessagesAsDeleted" &&
+                it.returnType == "Ljava/util/ArrayList;"
+        }
+
+        check(markMessagesAsDeleted.size == 2) {
+            "Expected exactly 2 MessagesStorage.markMessagesAsDeleted overloads, found ${markMessagesAsDeleted.size}"
+        }
+
+        val fourArg = markMessagesAsDeleted.single {
+            it.parameterTypes == listOf("J", "I", "Z", "Z")
+        }
+        val sixArg = markMessagesAsDeleted.single {
+            it.parameterTypes == listOf("J", "Ljava/util/ArrayList;", "Z", "Z", "I", "I")
+        }
+
+        // p4=Z is the async/local-only flag.
         // true = user-initiated local delete (allow); false = server-push delete (block).
-        MarkMessagesAsDeletedFingerprint1.method.addInstructions(0, """
+        fourArg.addInstructions(0, """
             if-nez p4, :allow
             const/4 v0, 0x0
             return-object v0
@@ -28,8 +47,7 @@ val telegramAntiDeletePatch = bytecodePatch(
             nop
         """)
 
-        // markMessagesAsDeleted(JArrayListZZII) — p4=Z same semantics.
-        MarkMessagesAsDeletedFingerprint2.method.addInstructions(0, """
+        sixArg.addInstructions(0, """
             if-nez p4, :allow
             const/4 v0, 0x0
             return-object v0
@@ -37,11 +55,7 @@ val telegramAntiDeletePatch = bytecodePatch(
             nop
         """)
 
-        // Block server-push deletion path entirely
         DeleteMessagesByPushFingerprint.method.addInstructions(0, "return-void")
-
-        // Suppress notification removal when messages are deleted server-side
-        // Sig changed in 12.9.2: (LongSparseArray, Z)V
         NotificationsControllerRemoveDeletedMessagesFingerprint.method.addInstructions(0, "return-void")
     }
 }
