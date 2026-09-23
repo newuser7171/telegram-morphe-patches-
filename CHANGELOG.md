@@ -1,3 +1,12 @@
+## [1.0.17](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.16...v1.0.17) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* harden obfuscated channel switching targets ([b7497dd](https://github.com/cingxcong/telegram-morphe-patches-/commit/b7497dd275d9ab9164bcf0cfbfc4950f59313a51))
+* harden obfuscated secret media targets ([9d7fa9a](https://github.com/cingxcong/telegram-morphe-patches-/commit/9d7fa9ab1793caccd67282aa58ff2ea4c9d4667c))
+* restore channel switching fingerprints ([2edb0d7](https://github.com/cingxcong/telegram-morphe-patches-/commit/2edb0d7f49e845aa6851890a8e03b9521b2b13f2))
+* restore compatible anti-disappearing media targets ([5c95ea1](https://github.com/cingxcong/telegram-morphe-patches-/commit/5c95ea1a9480c9e1080b541b4c9406ae45a687a1))
+
 ## [1.0.16](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.15...v1.0.16) (2026-09-23)
 
 ### 🐛 Bug Fixes
