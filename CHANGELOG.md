@@ -1,3 +1,9 @@
+## [1.0.26](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.25...v1.0.26) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert analytics targets are concrete ([a73268b](https://github.com/cingxcong/telegram-morphe-patches-/commit/a73268b1487cf00f5c2c6ba53d87d0122b0ddbd5))
+
 ## [1.0.25](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.24...v1.0.25) (2026-09-23)
 
 ### 🐛 Bug Fixes
