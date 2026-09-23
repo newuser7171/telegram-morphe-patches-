@@ -6,7 +6,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.mutableClassDefBy
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.telegram.signature.telegramSpoofDependency
 import app.template.patches.shared.Constants.TELEGRAM_PLUS_COMPATIBILITY
@@ -18,6 +17,8 @@ import app.template.patches.telegram.IsSecretPhotoOrVideoFingerprint
 import app.template.patches.telegram.IsVoiceOnceFingerprint
 import app.template.patches.telegram.MessageObjectNeedDrawBluredPreviewFingerprint
 import app.template.patches.telegram.SecretMediaViewerClosePhotoFingerprint
+import app.template.patches.telegram.SendSecretMediaDeleteFingerprint
+import app.template.patches.telegram.SendSecretMessageReadFingerprint
 import app.template.patches.telegram.ShouldEncryptPhotoOrVideoFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -39,7 +40,7 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
             ShouldEncryptPhotoOrVideoFingerprint,
             IsVoiceOnceFingerprint,
             IsRoundOnceFingerprint,
-            MessageObjectNeedDrawBluredPreviewFingerprint,   // prevent blurred preview overlay
+            MessageObjectNeedDrawBluredPreviewFingerprint,
         ).forEach {
             it.method.addInstructions(0, """
                 const/4 v0, 0x0
@@ -47,41 +48,15 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
             """)
         }
 
-        // Telegram 12.10.3 obfuscates these helpers inside ChatActivity (po;).
-        // Resolve the exact obfuscated signatures directly and assert uniqueness.
-        // This avoids relying on a global fingerprint matcher for R8-generated names.
-        val chatActivityClass = mutableClassDefBy("Lorg/telegram/ui/po;")
-
-        val sendSecretMediaDeleteMethods = chatActivityClass.methods.filter {
-            it.name == "N4" &&
-                it.returnType == "Lorg/telegram/messenger/video/k;" &&
-                it.parameterTypes == listOf(
-                    "Lorg/telegram/ui/po;",
-                    "Lorg/telegram/messenger/MessageObject;",
-                )
-        }
-        check(sendSecretMediaDeleteMethods.size == 1) {
-            "Expected exactly 1 po.N4(po;MessageObject;)video/k method, " +
-                "found ${sendSecretMediaDeleteMethods.size}"
-        }
-        sendSecretMediaDeleteMethods.single().addInstructions(0, """
+        // These helpers are obfuscated in Telegram 12.10.3; keep their verified
+        // signatures in dedicated fingerprints rather than depending on a missing
+        // mutable-class lookup API.
+        SendSecretMediaDeleteFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
 
-        val sendSecretMessageReadMethods = chatActivityClass.methods.filter {
-            it.name == "db" &&
-                it.returnType == "Lorg/telegram/ui/ef;" &&
-                it.parameterTypes == listOf(
-                    "Lorg/telegram/messenger/MessageObject;",
-                    "Z",
-                )
-        }
-        check(sendSecretMessageReadMethods.size == 1) {
-            "Expected exactly 1 po.db(MessageObject;Z)ef method, " +
-                "found ${sendSecretMessageReadMethods.size}"
-        }
-        sendSecretMessageReadMethods.single().addInstructions(0, """
+        SendSecretMessageReadFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
