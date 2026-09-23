@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T11:47:05",
-  "description": "## [1.0.11](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.10...v1.0.11) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* tolerate missing peer forwarding restriction overload ([22c2b7c](https://github.com/cingxcong/telegram-morphe-patches-/commit/22c2b7c0368607e3f170bca8fe4b47cf04d738af))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.11/patches-1.0.11.mpp",
+  "created_at": "2026-09-23T11:51:55",
+  "description": "## [1.0.12](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.11...v1.0.12) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* map channel switching methods for Telegram 12.10.3 ([0d74b83](https://github.com/cingxcong/telegram-morphe-patches-/commit/0d74b83e65b07f2acdeac42d27c49564ec4d876e))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.12/patches-1.0.12.mpp",
   "signature_download_url": "",
-  "version": "1.0.11"
+  "version": "1.0.12"
 }

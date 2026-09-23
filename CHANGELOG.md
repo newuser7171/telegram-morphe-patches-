@@ -1,3 +1,9 @@
+## [1.0.12](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.11...v1.0.12) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* map channel switching methods for Telegram 12.10.3 ([0d74b83](https://github.com/cingxcong/telegram-morphe-patches-/commit/0d74b83e65b07f2acdeac42d27c49564ec4d876e))
+
 ## [1.0.11](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.10...v1.0.11) (2026-09-23)
 
 ### 🐛 Bug Fixes
