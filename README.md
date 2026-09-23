@@ -1,18 +1,45 @@
-# 👋🧩 Morphe Patches template
+# 🧩 Telegram Morphe Patches
 
-Template repository for Morphe Patches.
+[![Build](https://github.com/cingxcong/telegram-morphe-patches-/actions/workflows/buildAndroid.yml/badge.svg)](https://github.com/cingxcong/telegram-morphe-patches-/actions/workflows/buildAndroid.yml)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 
-## ❓ About
+A maintained Morphe patch bundle for **Telegram 12.10.3**, focused on privacy, customization, content controls, and quality-of-life tweaks.
 
-Patches for apps I like.
+> **Target:** Telegram `12.10.3` · versionCode `70892`
 
-<!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
+## 🚀 Install
 
-### How to use these patches
+Add this patch source directly to Morphe:
 
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=cingxcong/telegram-morphe-patches-
+**[➜ Add Telegram patches to Morphe](https://morphe.software/add-source?github=cingxcong/telegram-morphe-patches-)**
 
-## 🩹 Patches list
+## ✨ Highlights
+
+- 🛡️ Message and disappearing-media controls
+- 🔓 Content and channel restriction controls
+- 👑 Premium feature unlocking
+- 🚫 Ad and auto-update controls
+- 🎙️ Voice-to-music playback
+- ⚡ Download performance tweaks
+- 👻 Typing-indicator and channel-switching controls
+- 🔐 Certificate/signature compatibility patches
+
+## 📦 Releases
+
+See **[Releases](https://github.com/cingxcong/telegram-morphe-patches-/releases)** for published `.mpp` bundles.
+
+> Patch compatibility is version-specific. A patch source working on another Telegram release should not be assumed compatible here.
+
+## ❓ Support
+
+If a patch fails to match, please open an issue and include:
+
+1. Telegram version and version code
+2. Morphe Manager and Patcher versions
+3. The complete `PatchException` traceback
+4. Which patch failed
+
+Please do not post private account data, authentication tokens, or modified APKs containing personal information.
 
 <!-- PATCHES_START EXPANDED -->
 > **[v1.0.13](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.0.13)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;47 patches total
@@ -127,4 +154,4 @@ See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation
 
 ## 📜 License
 
-UserXYZ Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+These patches are licensed under the [GNU General Public License v3.0](LICENSE)
