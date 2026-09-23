@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.15...v1.0.16) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert unique checkCanOpenChat target ([8713099](https://github.com/cingxcong/telegram-morphe-patches-/commit/8713099e709345dcc0db43d28445d0d2329bb7bd))
+* clean before release verification build ([aa12574](https://github.com/cingxcong/telegram-morphe-patches-/commit/aa12574426f0bea6ef4a2d36b471ec6ab78df5f6))
+
 ## [1.0.15](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.14...v1.0.15) (2026-09-23)
 
 ### 🐛 Bug Fixes
