@@ -1,3 +1,13 @@
+## [1.7.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.6.0...v1.7.0) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* target obfuscated PeerStoriesView screenshot gate ([8ce42ff](https://github.com/cingxcong/telegram-morphe-patches-/commit/8ce42ff8b5411f867033e1b9687a2ada6ccb64fc))
+
+### ✨ New Features
+
+* bypass Stories screenshot no-forwards gate ([1652aed](https://github.com/cingxcong/telegram-morphe-patches-/commit/1652aedae36f89d0141af8b5ffd724f140de5112))
+
 ## [1.6.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.5.0...v1.6.0) (2026-09-23)
 
 ### ✨ New Features
