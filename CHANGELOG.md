@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.1...v1.0.2) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* make anti-delete fingerprints explicit for 12.10.3 ([544f2a1](https://github.com/cingxcong/telegram-morphe-patches-/commit/544f2a1dc0c8a6b920623145111860a361ae7494))
+
 ## [1.0.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.0...v1.0.1) (2026-09-23)
 
 ### 🐛 Bug Fixes
