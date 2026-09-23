@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T19:06:40",
-  "description": "## [1.0.32](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.31...v1.0.32) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* block sponsored response processing ([5555c01](https://github.com/cingxcong/telegram-morphe-patches-/commit/5555c0157ac207dbab155efa8d1abf14ed131b3f))\n* remove failed sponsored response fingerprint ([ca5d71c](https://github.com/cingxcong/telegram-morphe-patches-/commit/ca5d71c690a47a9b95344a480d2d60d13221c773))\n* restore ads patch after failed response target ([9844a25](https://github.com/cingxcong/telegram-morphe-patches-/commit/9844a25af9b333c7ada4e9ff54aa4b7b64792494))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.32/patches-1.0.32.mpp",
+  "created_at": "2026-09-23T19:10:57",
+  "description": "## [1.0.33](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.32...v1.0.33) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* block sponsored response construction ([2606c33](https://github.com/cingxcong/telegram-morphe-patches-/commit/2606c33f3bad9ddd9888f470ed91c0b3349c5ed4))\n* target sponsored response by bytecode ([20d0087](https://github.com/cingxcong/telegram-morphe-patches-/commit/20d0087f38fd4363b402d524f59d52404f899b9f))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.33/patches-1.0.33.mpp",
   "signature_download_url": "",
-  "version": "1.0.32"
+  "version": "1.0.33"
 }

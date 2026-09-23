@@ -1,3 +1,10 @@
+## [1.0.33](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.32...v1.0.33) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* block sponsored response construction ([2606c33](https://github.com/cingxcong/telegram-morphe-patches-/commit/2606c33f3bad9ddd9888f470ed91c0b3349c5ed4))
+* target sponsored response by bytecode ([20d0087](https://github.com/cingxcong/telegram-morphe-patches-/commit/20d0087f38fd4363b402d524f59d52404f899b9f))
+
 ## [1.0.32](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.31...v1.0.32) (2026-09-23)
 
 ### 🐛 Bug Fixes
