@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.3...v1.0.4) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* resolve anti-delete overloads directly ([1759852](https://github.com/cingxcong/telegram-morphe-patches-/commit/1759852f1a76af63411a2ac35313e3c7ab149c2a))
+* resolve anti-delete overloads directly with mutable class ([3135617](https://github.com/cingxcong/telegram-morphe-patches-/commit/3135617a5245badd17001e4d44305129545e597b))
+* use mutable class for anti-delete overloads ([c4abd00](https://github.com/cingxcong/telegram-morphe-patches-/commit/c4abd003d6b5665eda3eeb20a0302a3a7cadab5f))
+* use patch context mutable class API ([f6f2d34](https://github.com/cingxcong/telegram-morphe-patches-/commit/f6f2d34782248bef2b154f83382c1c151b5ea5ed))
+
 ## [1.0.3](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.2...v1.0.3) (2026-09-23)
 
 ### 🐛 Bug Fixes
