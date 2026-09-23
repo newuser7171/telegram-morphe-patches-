@@ -16,6 +16,16 @@ val telegramPlusDisableAnalyticsPatch = bytecodePatch(
     compatibleWith(TELEGRAM_PLUS_COMPATIBILITY)
 
     execute {
+        listOf(
+            AnalyticsEnableFingerprint,
+            AnalyticsTrackEventFingerprint,
+            AnalyticsTrackEventMapFingerprint,
+        ).forEach {
+            check(it.method.implementation != null) {
+                "Expected concrete implementation for ${it.method.definingClass}->${it.method.name}"
+            }
+        }
+
         // Skip analytics setup (FirebaseApp.initializeApp stays intact for FCM)
         AnalyticsEnableFingerprint.method.addInstructions(0, "return-void")
         AnalyticsTrackEventFingerprint.method.addInstructions(0, "return-void")
