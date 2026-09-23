@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.7.0...v1.7.1) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* harden anti-disappearing media gates ([00ea246](https://github.com/cingxcong/telegram-morphe-patches-/commit/00ea246c6a3741f9aeade4a32e189270d4e43a26))
+
 ## [1.7.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.6.0...v1.7.0) (2026-09-23)
 
 ### 🐛 Bug Fixes
