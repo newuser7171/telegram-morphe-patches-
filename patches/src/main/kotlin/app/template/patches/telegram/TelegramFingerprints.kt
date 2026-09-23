@@ -39,8 +39,6 @@ val StoriesControllerIsPremiumFingerprint = Fingerprint(
     parameters = listOf("J"),
 )
 
-// Telegram 12.10.3 R8 inlines StoriesController.isPremium(long) into its
-// stories-priority comparator. The released APK has no isPremium(J)Z method.
 val StoriesControllerPremiumComparatorFingerprint = Fingerprint(
     definingClass = "Lah/x7;",
     name = "compare",
@@ -75,7 +73,6 @@ val ChatActivityAddSponsoredMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "s6",
     returnType = "V",
-    parameters = listOf("Z"),
 )
 
 val MessagesControllerIsSponsoredDisabledFingerprint = Fingerprint(
@@ -120,8 +117,6 @@ val SharedConfigIsAppUpdateAvailableFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
 )
 
-// Web: setNewAppVersionAvailable(TL_help_appUpdate)Z static
-// Plus: same sig — both return Z so returnType = "Z" is safe
 val SharedConfigSetNewAppVersionAvailableFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/SharedConfig;",
     name = "setNewAppVersionAvailable",
@@ -202,7 +197,6 @@ val MessagesControllerIsSensitiveFingerprint = Fingerprint(
     parameters = listOf("Ljava/util/ArrayList;"),
 )
 
-// Web: public static; Plus: public (not static). Omit accessFlags for compat.
 val ShowCantOpenAlertFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "showCantOpenAlert",
@@ -264,19 +258,12 @@ val CreateNoAccessAlertFingerprint = Fingerprint(
 val LoadFullChatErrorFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     returnType = "V",
-    // 12.9.2: private synthetic lambda, params = (TL_error;J)
-    // 12.10.0: R8 promoted to public static synthetic, added MessagesController as first param
-    // Omit parameters so both generations match.
     filters = listOf(
         methodCall(
             definingClass = "Lorg/telegram/messenger/MessagesController;",
             name = "checkChannelError",
         ),
     ),
-    // R8 name is unstable — exclude the NotificationCenter variant (GetChannelDiff)
-    // by ensuring HashSet.remove is present in the body
-    // LoadFullChat lambda calls HashSet.remove; GetChannelDiff calls postNotificationName.
-    // This distinguishes the two without relying on unstable R8-generated method names.
     custom = { method, _ ->
         method.implementation?.instructions?.any { instr ->
             val ref = (instr as? ReferenceInstruction)?.reference as? MethodReference
@@ -288,9 +275,6 @@ val LoadFullChatErrorFingerprint = Fingerprint(
 val GetChannelDiffErrorFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     returnType = "V",
-    // 12.9.2: private synthetic lambda, params = (TL_error;J)
-    // 12.10.0: R8 promoted to public static synthetic; params = (MessagesController;TL_error;J)
-    // Omit parameters so both generations match.
     filters = listOf(
         methodCall(
             definingClass = "Lorg/telegram/messenger/MessagesController;",
@@ -342,7 +326,6 @@ val MarkMessagesAsDeletedFingerprint2 = Fingerprint(
     },
 )
 
-// Web: protected; Plus: public. Omit accessFlags.
 val DeleteMessagesByPushFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "deleteMessagesByPush",
@@ -380,9 +363,6 @@ val IsSecretPhotoOrVideoFingerprint = Fingerprint(
     parameters = listOf("Lorg/telegram/tgnet/TLRPC\$Message;"),
 )
 
-// Static overload (I, Message)Z — present in both Web and Plus.
-// Paresh uses this overload. The instance ()Z delegates to this,
-// but targeting the static ensures we hit the actual implementation.
 val ShouldEncryptPhotoOrVideoFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessageObject;",
     name = "shouldEncryptPhotoOrVideo",
@@ -402,7 +382,6 @@ val IsRoundOnceFingerprint = Fingerprint(
     returnType = "Z",
 )
 
-// Web: private; Plus: public final. Omit accessFlags.
 val SendSecretMediaDeleteFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "N4",
@@ -470,7 +449,6 @@ val StoriesControllerHasStoriesFingerprint = Fingerprint(
     parameters = listOf(),
 )
 
-// Use the 2-param overload (J, StoryItem) — present in both variants
 val StoriesControllerMarkStoryAsReadFingerprint = Fingerprint(
     definingClass = "Lsg/o5;",
     name = "markStoryAsRead",
@@ -512,8 +490,6 @@ val MediaDataControllerLoadPinnedMessagesFingerprint = Fingerprint(
     parameters = listOf("J", "I", "I"),
 )
 
-// ─── VoiceToMusic ─────────────────────────────────────────────────────────────
-
 val MessageObjectIsVoiceFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessageObject;",
     name = "isVoice",
@@ -534,10 +510,6 @@ val MessageObjectIsMusicFingerprint = Fingerprint(
     ),
 )
 
-// ─── Anti-disappearing media (additional) ────────────────────────────────────
-
-// MessageObject.needDrawBluredPreview()Z — blurs self-destructing media previews.
-// Present in both Web and Plus. Returning false prevents the blurred overlay.
 val MessageObjectNeedDrawBluredPreviewFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessageObject;",
     name = "needDrawBluredPreview",
@@ -545,10 +517,6 @@ val MessageObjectNeedDrawBluredPreviewFingerprint = Fingerprint(
     parameters = listOf(),
 )
 
-// ─── Anti-screenshot notification ─────────────────────────────────────────────
-
-// SendMessagesHelper.sendScreenshotMessage(User,I,Message)V
-// Notifies the other user when you screenshot a conversation.
 val SendScreenshotMessageUserFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/SendMessagesHelper;",
     name = "sendScreenshotMessage",
@@ -560,7 +528,6 @@ val SendScreenshotMessageUserFingerprint = Fingerprint(
     ),
 )
 
-// SecretChatHelper.sendScreenshotMessage(EncryptedChat,ArrayList,Message)V
 val SendScreenshotMessageSecretFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/SecretChatHelper;",
     name = "sendScreenshotMessage",
@@ -571,8 +538,6 @@ val SendScreenshotMessageSecretFingerprint = Fingerprint(
         "Lorg/telegram/tgnet/TLRPC\$Message;",
     ),
 )
-
-// ─── User no-forwards (missing from original set) ─────────────────────────────
 
 val MessagesControllerIsUserNoForwardsLongFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
@@ -588,10 +553,6 @@ val MessagesControllerIsUserNoForwardsUserFullFingerprint = Fingerprint(
     parameters = listOf("Lorg/telegram/tgnet/TLRPC\$UserFull;"),
 )
 
-// ─── Channel switching (Killergram / NoAds) ───────────────────────────────────
-
-// Telegram 12.10.3 obfuscation:
-// getNextUnreadDialog -> c(J,I,I,Z,[I): Dialog
 val ChatPullingDownDrawableGetNextFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/mq;",
     name = "c",
@@ -611,8 +572,6 @@ val ChatPullingDownDrawableNeedDrawBottomPanelFingerprint = Fingerprint(
     name = "e",
     returnType = "Z",
 )
-
-// ─── Premium account count / device class (Killergram) ───────────────────────
 
 val UserConfigGetMaxAccountCountFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/UserConfig;",
@@ -635,16 +594,12 @@ val SharedConfigGetDevicePerformanceClassFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
 )
 
-// ─── Sponsored messages count (NoAds) ────────────────────────────────────────
-
 val ChatActivityGetSponsoredMessagesCountFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "n8",
     returnType = "I",
-    // Web=private, Plus=public final — omit accessFlags for cross-variant compat
 )
 
-// MessagesController.getSponsoredMessages(J) — fetches sponsored msg cache entry
 val MessagesControllerGetSponsoredMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "getSponsoredMessages",
@@ -653,13 +608,6 @@ val MessagesControllerGetSponsoredMessagesFingerprint = Fingerprint(
     parameters = listOf("J"),
 )
 
-// ─── Copyright / restriction message bypass ───────────────────────────────────
-
-// MessageObject.updateMessageText() — called at construction and on refresh.
-// When getRestrictionReason returns non-null, this sets isRestrictedMessage=true
-// and replaces messageText with the copyright string.
-// Patching getRestrictionReason→null already prevents this, but patching
-// updateMessageText directly gives belt-and-suspenders protection.
 val MessageObjectUpdateMessageTextFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessageObject;",
     name = "updateMessageText",
@@ -668,9 +616,6 @@ val MessageObjectUpdateMessageTextFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC),
 )
 
-
-// DialogCell.buildLayout()V — calls getRestrictionReason twice; we use matchAll on the
-// getRestrictionReason methodCall filter to find and neutralise both result registers.
 val DialogCellBuildLayoutFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/Cells/t2;",
     name = "buildLayout",
@@ -683,7 +628,6 @@ val DialogCellBuildLayoutFingerprint = Fingerprint(
     ),
 )
 
-// DialogCell.updateMessageThumbs()V — also calls getRestrictionReason
 val DialogCellUpdateMessageThumbsFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/Cells/t2;",
     name = "updateMessageThumbs",
@@ -696,25 +640,18 @@ val DialogCellUpdateMessageThumbsFingerprint = Fingerprint(
     ),
 )
 
-// ─── Plus-specific (safe to probe via methodOrNull on non-Plus builds) ────────
-
-// MessagesController.premiumFeaturesBlocked()Z
-// Present only in org.telegram.plus — gates "Get Premium" nag dialogs.
-// Using methodOrNull makes this safe to reference in shared patches.
 val PremiumFeaturesBlockedFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "premiumFeaturesBlocked",
     returnType = "Z",
 )
 
-// org.telegram.plus.update.PlusUpdater.checkAppUpdate(RequestDelegate)V
 val PlusUpdaterCheckAppUpdateFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/plus/update/PlusUpdater;",
     name = "checkAppUpdate",
     returnType = "V",
 )
 
-// PlusSettings.isUpdateEnabled()Z
 val PlusSettingsIsUpdateEnabledFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/ActionBar/PlusSettings;",
     name = "isUpdateEnabled",
@@ -722,21 +659,18 @@ val PlusSettingsIsUpdateEnabledFingerprint = Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
 )
 
-// org.telegram.plus.ads.AdsController.adsDisabled()Z
 val AdsControllerAdsDisabledFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/plus/ads/AdsController;",
     name = "adsDisabled",
     returnType = "Z",
 )
 
-// org.telegram.plus.ads.AdsInstance.loadAds()V
 val AdsInstanceLoadAdsFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/plus/ads/AdsInstance;",
     name = "loadAds",
     returnType = "V",
 )
 
-// org.telegram.plus.ads.AdsInstance.loadNativeAd(...) — returns Z in 12.9.0.1
 val AdsInstanceLoadNativeAdFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/plus/ads/AdsInstance;",
     name = "loadNativeAd",
@@ -747,7 +681,6 @@ val AdsInstanceLoadNativeAdFingerprint = Fingerprint(
     ),
 )
 
-// MessagesController.sendTyping(JJII)Z — Plus-specific signature
 val PlusSendTypingFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "sendTyping",
@@ -755,7 +688,6 @@ val PlusSendTypingFingerprint = Fingerprint(
     parameters = listOf("J", "J", "I", "I"),
 )
 
-// org.telegram.plus.helpers.AnalyticsHelper fingerprints
 val AnalyticsEnableFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/plus/helpers/AnalyticsHelper;",
     name = "enableAnalytics",
@@ -777,7 +709,6 @@ val AnalyticsTrackEventMapFingerprint = Fingerprint(
     parameters = listOf("Ljava/lang/String;", "Ljava/util/HashMap;"),
 )
 
-// ─── Rich HTML paste ──────────────────────────────────────────────────────────
 val ChatActivityEnterViewHandleRichHtmlPasteFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/Components/ChatActivityEnterView;",
     name = "handleRichHtmlPaste",
@@ -785,7 +716,6 @@ val ChatActivityEnterViewHandleRichHtmlPasteFingerprint = Fingerprint(
     parameters = listOf(),
 )
 
-// ─── Rich-message forwarding / Hide Sender Name ───────────────────────────────
 val ChatActivityForwardMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/po;",
     name = "s8",
@@ -800,7 +730,6 @@ val ChatActivityForwardMessagesFingerprint = Fingerprint(
     ),
 )
 
-// Telegram 12.10.3: rich HTML paste is handled by Components.iu.onTextContextMenuItem(I)Z.
 val Telegram12_10_3RichPasteFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/ui/Components/iu;",
     name = "onTextContextMenuItem",
