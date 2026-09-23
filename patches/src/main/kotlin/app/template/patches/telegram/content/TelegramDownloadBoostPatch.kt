@@ -17,6 +17,10 @@ val telegramDownloadBoostPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        check(FileLoadOperationUpdateParamsFingerprint.method.implementation != null) {
+            "Expected concrete FileLoadOperation.updateParams() implementation"
+        }
+
         // Replace the entire method body with maximised values.
         // Values match Telegram-Speed-Hook (AraafRoyall) which is tested working:
         //   downloadChunkSizeBig  = 1 MB  (0x100000) — fewer round-trips on fast connections
