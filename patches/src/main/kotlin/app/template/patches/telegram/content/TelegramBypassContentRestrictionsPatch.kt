@@ -59,7 +59,7 @@ val telegramBypassContentRestrictionsPatch = bytecodePatch(
             ChatActivityIsPeerNoForwardsFingerprint,
             ProfileActivityIsPeerNoForwardsFingerprint,
         ).forEach {
-            it.method.addInstructions(0, """
+            it.methodOrNull?.addInstructions(0, """
                 const/4 v0, 0x0
                 return v0
             """)
