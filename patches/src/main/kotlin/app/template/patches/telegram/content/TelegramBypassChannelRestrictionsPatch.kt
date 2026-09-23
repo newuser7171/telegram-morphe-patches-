@@ -6,13 +6,13 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.mutableClassDefBy
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_PLUS_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_WEB_COMPATIBILITY
 import app.template.patches.telegram.CheckCanOpenChat2Fingerprint
 import app.template.patches.telegram.CheckCanOpenChat3Fingerprint
 import app.template.patches.telegram.CheckCanOpenChat4Fingerprint
+import app.template.patches.telegram.CreateNoAccessAlertFingerprint
 import app.template.patches.telegram.CheckChannelErrorFingerprint
 import app.template.patches.telegram.CheckSensitiveFingerprint
 import app.template.patches.telegram.GetChannelDiffErrorFingerprint
@@ -110,20 +110,7 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // ── Channel access errors ─────────────────────────────────────────────
         ShowCantOpenAlertFingerprint.method.addInstructions(0, "return-void")
         CheckChannelErrorFingerprint.method.addInstructions(0, "return-void")
-        // Resolve directly: Telegram 12.10.3 obfuscates createNoAccessAlert as
-        // Components/d5.F(Context, String, String): AlertDialog.Builder.
-        // Direct class/method resolution avoids Fingerprint matcher ambiguity.
-        val componentsClass = mutableClassDefBy("Lorg/telegram/ui/Components/d5;")
-        val createNoAccessAlert = componentsClass.methods.single {
-            it.name == "F" &&
-                it.returnType == "Lorg/telegram/ui/ActionBar/AlertDialog\$Builder;" &&
-                it.parameterTypes == listOf(
-                    "Landroid/content/Context;",
-                    "Ljava/lang/String;",
-                    "Ljava/lang/String;",
-                )
-        }
-        createNoAccessAlert.addInstructions(0, """
+        CreateNoAccessAlertFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
