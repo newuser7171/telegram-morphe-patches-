@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.3.0...v1.4.0) (2026-09-23)
+
+### ✨ New Features
+
+* bypass FileLoader no-forwards save gate ([898c60d](https://github.com/cingxcong/telegram-morphe-patches-/commit/898c60d485423526531e3d1db018b3cbd6d351a8))
+* target FileLoader no-forwards gate ([3ce52a1](https://github.com/cingxcong/telegram-morphe-patches-/commit/3ce52a10958fd99ea9bdbb6cc83e289247a223ca))
+
 ## [1.3.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.2.0...v1.3.0) (2026-09-23)
 
 ### 🐛 Bug Fixes
