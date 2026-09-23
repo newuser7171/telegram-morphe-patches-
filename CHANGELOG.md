@@ -1,3 +1,12 @@
+## [1.0.34](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.33...v1.0.34) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* remove incorrect sponsored count fingerprint ([9e6414d](https://github.com/cingxcong/telegram-morphe-patches-/commit/9e6414d90a1efc11412476095c080d17da1e8e98))
+* restore ads fingerprint file syntax ([5fe8b45](https://github.com/cingxcong/telegram-morphe-patches-/commit/5fe8b45d7a16cdae8fcbbf4e95b126f6c956eb7e))
+* restore ads patch syntax ([16160c2](https://github.com/cingxcong/telegram-morphe-patches-/commit/16160c214c85e06aa113f5e2a981474eb5ab78e3))
+* stop overriding chat message position calculation ([13af7dd](https://github.com/cingxcong/telegram-morphe-patches-/commit/13af7dd09237b11ff2a520a04f3f3537e832d3cc))
+
 ## [1.0.33](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.32...v1.0.33) (2026-09-23)
 
 ### 🐛 Bug Fixes

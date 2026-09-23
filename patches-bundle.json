@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T19:10:57",
-  "description": "## [1.0.33](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.32...v1.0.33) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* block sponsored response construction ([2606c33](https://github.com/cingxcong/telegram-morphe-patches-/commit/2606c33f3bad9ddd9888f470ed91c0b3349c5ed4))\n* target sponsored response by bytecode ([20d0087](https://github.com/cingxcong/telegram-morphe-patches-/commit/20d0087f38fd4363b402d524f59d52404f899b9f))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.33/patches-1.0.33.mpp",
+  "created_at": "2026-09-23T19:25:28",
+  "description": "## [1.0.34](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.33...v1.0.34) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* remove incorrect sponsored count fingerprint ([9e6414d](https://github.com/cingxcong/telegram-morphe-patches-/commit/9e6414d90a1efc11412476095c080d17da1e8e98))\n* restore ads fingerprint file syntax ([5fe8b45](https://github.com/cingxcong/telegram-morphe-patches-/commit/5fe8b45d7a16cdae8fcbbf4e95b126f6c956eb7e))\n* restore ads patch syntax ([16160c2](https://github.com/cingxcong/telegram-morphe-patches-/commit/16160c214c85e06aa113f5e2a981474eb5ab78e3))\n* stop overriding chat message position calculation ([13af7dd](https://github.com/cingxcong/telegram-morphe-patches-/commit/13af7dd09237b11ff2a520a04f3f3537e832d3cc))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.34/patches-1.0.34.mpp",
   "signature_download_url": "",
-  "version": "1.0.33"
+  "version": "1.0.34"
 }
