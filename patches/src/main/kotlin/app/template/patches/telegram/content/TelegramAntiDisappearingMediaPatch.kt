@@ -32,6 +32,22 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
+        // These are mandatory 12.10.3 targets: fail loudly if any fingerprint resolves
+        // without a concrete method body instead of silently producing a partial patch.
+        listOf(
+            IsSecretMediaInstanceFingerprint,
+            IsSecretMediaStaticFingerprint,
+            IsSecretPhotoOrVideoFingerprint,
+            ShouldEncryptPhotoOrVideoFingerprint,
+            IsVoiceOnceFingerprint,
+            IsRoundOnceFingerprint,
+            MessageObjectNeedDrawBluredPreviewFingerprint,
+        ).forEach {
+            check(it.method.implementation != null) {
+                "Expected concrete implementation for ${it.method.definingClass}->${it.method.name}"
+            }
+        }
+
         // Return false — prevents the destruction timer and encrypted-only storage
         listOf(
             IsSecretMediaInstanceFingerprint,
