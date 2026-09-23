@@ -465,7 +465,7 @@ val StoriesControllerMarkStoryAsReadFingerprint = Fingerprint(
 
 val PeerStoriesViewAllowScreenshotsFingerprint = Fingerprint(
     definingClass = "Lsg/i3;",
-    name = "allowScreenshots",
+    name = "d",
     returnType = "Z",
 )
 
