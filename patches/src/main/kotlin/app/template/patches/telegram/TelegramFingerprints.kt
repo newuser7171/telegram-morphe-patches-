@@ -600,6 +600,19 @@ val ChatActivityGetSponsoredMessagesCountFingerprint = Fingerprint(
     returnType = "I",
 )
 
+val MessagesControllerSponsoredMessagesResponseFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/messenger/MessagesController;",
+    name = "lambda$getSponsoredMessages$440",
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PRIVATE),
+    parameters = listOf(
+        "J",
+        "Lorg/telegram/messenger/MessagesController\$SponsoredMessagesInfo;",
+        "Lorg/telegram/tgnet/TLObject;",
+        "Lorg/telegram/tgnet/TLRPC\$TL_error;",
+    ),
+)
+
 val MessagesControllerGetSponsoredMessagesFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "getSponsoredMessages",
