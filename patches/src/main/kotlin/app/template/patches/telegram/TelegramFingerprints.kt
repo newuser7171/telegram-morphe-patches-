@@ -791,3 +791,11 @@ val ChatActivityForwardMessagesFingerprint = Fingerprint(
         "J",
     ),
 )
+
+// Telegram 12.10.3: rich HTML paste is handled by Components.iu.onTextContextMenuItem(I)Z.
+val Telegram12_10_3RichPasteFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/ui/Components/iu;",
+    name = "onTextContextMenuItem",
+    returnType = "Z",
+    parameters = listOf("I"),
+)
