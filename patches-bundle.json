@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T20:08:13",
-  "description": "## [1.1.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.36...v1.1.0) (2026-09-23)\n\n### ✨ New Features\n\n* bypass no-forwards share button gate ([37c00df](https://github.com/cingxcong/telegram-morphe-patches-/commit/37c00df8e1f097aba815b3aea03022ee50a4e164))\n* target share button no-forwards gate ([49bf037](https://github.com/cingxcong/telegram-morphe-patches-/commit/49bf037e3de07aba786b852141058b28eb089103))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.1.0/patches-1.1.0.mpp",
+  "created_at": "2026-09-23T20:13:39",
+  "description": "## [1.2.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.1.0...v1.2.0) (2026-09-23)\n\n### ✨ New Features\n\n* bypass PhotoViewer no-forwards gate ([988d287](https://github.com/cingxcong/telegram-morphe-patches-/commit/988d287306834bc1f4e091cc23cb95a9ee47ca85))\n* target PhotoViewer no-forwards gate ([c1185a3](https://github.com/cingxcong/telegram-morphe-patches-/commit/c1185a31a14a8dc814893e28876df47da8a19995))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.2.0/patches-1.2.0.mpp",
   "signature_download_url": "",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.1.0...v1.2.0) (2026-09-23)
+
+### ✨ New Features
+
+* bypass PhotoViewer no-forwards gate ([988d287](https://github.com/cingxcong/telegram-morphe-patches-/commit/988d287306834bc1f4e091cc23cb95a9ee47ca85))
+* target PhotoViewer no-forwards gate ([c1185a3](https://github.com/cingxcong/telegram-morphe-patches-/commit/c1185a31a14a8dc814893e28876df47da8a19995))
+
 ## [1.1.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.36...v1.1.0) (2026-09-23)
 
 ### ✨ New Features
