@@ -11,9 +11,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 // ════════════════════════════════════════════════════════════════════════════════
 // Telegram shared fingerprints
-// Verified against: Telegram Web 12.9.2 (69919), TelegramPlus 12.9.0.1 (22437)
-// All class names non-obfuscated — stable across Telegram forks.
-// AccessFlags omitted where Web/Plus differ (e.g. protected vs public).
+// Primary target: Telegram Android 12.10.3 (versionCode 70892).
+// Cross-variant notes below are retained where Web/Plus signatures are known.
+// Do not treat cross-variant comments as bytecode verification of 12.10.3.
+// AccessFlags are omitted where known variants differ (e.g. protected vs public).
 // ════════════════════════════════════════════════════════════════════════════════
 
 // ─── Premium ──────────────────────────────────────────────────────────────────
