@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.0...v1.0.1) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* add signature hook extension for 12.10.3 ([95af971](https://github.com/cingxcong/telegram-morphe-patches-/commit/95af97146afb2625211c0b4e1be68eecba2bfc08))
+
 ## 1.0.0 (2026-09-23)
 
 ### 🐛 Bug Fixes
