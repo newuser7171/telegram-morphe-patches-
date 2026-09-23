@@ -29,16 +29,15 @@ internal var extractedPackageName: String = ""
  * Base64 certificate signature.
  */
 internal val SignatureHookAppStaticInitFingerprint = Fingerprint(
-    accessFlags = listOf(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR),
-    parameters = emptyList(),
     custom = { method, classDef ->
+        // Match the injected extension's static initializer structurally.
+        // Do not require the placeholder strings here: depending on the extension
+        // compiler/DEX layout they may be represented by a different const-string
+        // instruction format. The execute block below performs the exact placeholder
+        // scan before modifying anything.
         classDef.type == EXTENSION_CLASS &&
-            method.implementation?.instructions?.filterIsInstance<
-                com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
-            >()?.count { instr ->
-                (instr.reference as? com.android.tools.smali.dexlib2.iface.reference.StringReference)
-                    ?.string in setOf("<package-name>", "<signature>")
-            } == 2
+            method.name == "<clinit>" &&
+            method.implementation != null
     },
 )
 
