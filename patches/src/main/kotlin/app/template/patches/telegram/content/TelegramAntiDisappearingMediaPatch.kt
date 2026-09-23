@@ -32,8 +32,6 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
     dependsOn(telegramSpoofDependency())
 
     execute {
-        // These are mandatory 12.10.3 targets: fail loudly if any fingerprint resolves
-        // without a concrete method body instead of silently producing a partial patch.
         listOf(
             IsSecretMediaInstanceFingerprint,
             IsSecretMediaStaticFingerprint,
@@ -48,7 +46,7 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
             }
         }
 
-        // Return false — prevents the destruction timer and encrypted-only storage
+        // Bypass the primary view-once media classification gates.
         listOf(
             IsSecretMediaInstanceFingerprint,
             IsSecretMediaStaticFingerprint,
@@ -64,9 +62,6 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
             """)
         }
 
-        // These helpers are obfuscated in Telegram 12.10.3; keep their verified
-        // signatures in dedicated fingerprints rather than depending on a missing
-        // mutable-class lookup API.
         SendSecretMediaDeleteFingerprint.method.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
@@ -77,7 +72,6 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
             return-object v0
         """)
 
-        // SecretMediaViewer.closePhoto — null out the onClose field to prevent destruction
         val onCloseFieldFilter = fieldAccess(
             opcode = Opcode.IGET_OBJECT,
             definingClass = "Lorg/telegram/ui/SecretMediaViewer;",
