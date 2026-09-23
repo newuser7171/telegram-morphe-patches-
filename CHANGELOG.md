@@ -1,3 +1,9 @@
+## [1.0.20](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.19...v1.0.20) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert anti-delete targets are concrete ([62980c3](https://github.com/cingxcong/telegram-morphe-patches-/commit/62980c3d072d5f532f794645726206defafde801))
+
 ## [1.0.19](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.18...v1.0.19) (2026-09-23)
 
 ### 🐛 Bug Fixes
