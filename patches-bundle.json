@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-23T16:13:14",
-  "description": "## [1.0.18](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.17...v1.0.18) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert rich paste branch is present ([b0392ab](https://github.com/cingxcong/telegram-morphe-patches-/commit/b0392ab064ded438943d15aee9db1a6c4d63b0ee))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.18/patches-1.0.18.mpp",
+  "created_at": "2026-09-23T16:18:18",
+  "description": "## [1.0.19](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.18...v1.0.19) (2026-09-23)\n\n### 🐛 Bug Fixes\n\n* assert screenshot notification targets are concrete ([5f66c8a](https://github.com/cingxcong/telegram-morphe-patches-/commit/5f66c8ab98406538f9335e3d30c98650ecce643f))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.0.19/patches-1.0.19.mpp",
   "signature_download_url": "",
-  "version": "1.0.18"
+  "version": "1.0.19"
 }

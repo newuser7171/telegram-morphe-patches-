@@ -1,3 +1,9 @@
+## [1.0.19](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.18...v1.0.19) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* assert screenshot notification targets are concrete ([5f66c8a](https://github.com/cingxcong/telegram-morphe-patches-/commit/5f66c8ab98406538f9335e3d30c98650ecce643f))
+
 ## [1.0.18](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.0.17...v1.0.18) (2026-09-23)
 
 ### 🐛 Bug Fixes
