@@ -1,14 +1,14 @@
-group = "app.template"
+group = "app.cingxcong.telegram123"
 
 patches {
     // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
-        contact = "na"
-        website = "na"
+        name = "Telegram 12.10.3 Monster Patches"
+        description = "Feature-rich Telegram 12.10.3 Morphe patch bundle"
+        source = "https://github.com/cingxcong/telegram-morphe-patches-"
+        author = "cingxcong"
+        contact = "GitHub"
+        website = "https://github.com/cingxcong/telegram-morphe-patches-"
         license = "GPLv3"
     }
 }
