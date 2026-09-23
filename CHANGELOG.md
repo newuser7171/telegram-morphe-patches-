@@ -1,3 +1,17 @@
+## [1.3.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.2.0...v1.3.0) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* escape Telegram Message descriptor in G2 patch ([d9beb64](https://github.com/cingxcong/telegram-morphe-patches-/commit/d9beb64feaa8492d073b3ae63c886fa98d1f6e1a))
+* repair G2 patch block syntax ([5ec9d1f](https://github.com/cingxcong/telegram-morphe-patches-/commit/5ec9d1fd6a2a67cf3b3fab2e8534a7988e535811))
+* use matched instruction register for noforwards gates ([5fa4158](https://github.com/cingxcong/telegram-morphe-patches-/commit/5fa415823e7277ffeca47de6b900912c2e7c5f00))
+* use PhotoViewer G2 fingerprint ([d1c07bd](https://github.com/cingxcong/telegram-morphe-patches-/commit/d1c07bd47bc04f33087a7db5da4d5eb2f1106952))
+
+### ✨ New Features
+
+* bypass PhotoViewer G2 no-forwards gate ([9b3ae9b](https://github.com/cingxcong/telegram-morphe-patches-/commit/9b3ae9bf8f66ffc4c5118b4583c47cc9295c7190))
+* fingerprint PhotoViewer G2 no-forwards gate ([4d50292](https://github.com/cingxcong/telegram-morphe-patches-/commit/4d5029256e9ae0ba6093744e20aa682f46331e9e))
+
 ## [1.2.0](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.1.0...v1.2.0) (2026-09-23)
 
 ### ✨ New Features
