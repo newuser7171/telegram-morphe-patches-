@@ -124,16 +124,20 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         // R8 changes the parameter descriptors of checkCanOpenChat across Telegram
         // builds. Resolve the mutable class directly instead of relying on three
         // fragile fingerprints.
-        mutableClassDefBy("Lorg/telegram/messenger/MessagesController;").methods
+        val checkCanOpenChatMethods = mutableClassDefBy("Lorg/telegram/messenger/MessagesController;").methods
             .filter {
                 it.name == "checkCanOpenChat" &&
                     it.returnType == "Z"
             }
-            .forEach {
-                it.addInstructions(0, """
-                    const/4 v0, 0x1
-                    return v0
-                """)
-            }
+
+        check(checkCanOpenChatMethods.size == 1) {
+            "Expected exactly 1 MessagesController.checkCanOpenChat(Z-returning) method, " +
+                "found ${checkCanOpenChatMethods.size}"
+        }
+
+        checkCanOpenChatMethods.single().addInstructions(0, """
+            const/4 v0, 0x1
+            return v0
+        """)
     }
 }
