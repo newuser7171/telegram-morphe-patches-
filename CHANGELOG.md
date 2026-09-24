@@ -1,3 +1,9 @@
+## [1.8.3](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.2...v1.8.3) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* update sponsored-message fingerprint for Telegram 12.10.4 ([8bc63bd](https://github.com/cingxcong/telegram-morphe-patches-/commit/8bc63bd78b075f3867c04e1c5d72092aa0f51b1d))
+
 ## [1.8.2](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.1...v1.8.2) (2026-09-24)
 
 ### 🐛 Bug Fixes
