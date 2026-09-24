@@ -42,14 +42,14 @@ If a patch fails to match, please open an issue and include:
 Please do not post private account data, authentication tokens, or modified APKs containing personal information.
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.8.1](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.8.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;44 patches total
+> **[v1.8.2](https://github.com/cingxcong/telegram-morphe-patches-/releases/tag/v1.8.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;44 patches total
 <details open>
 <summary>📦 Telegram&nbsp;&nbsp;•&nbsp;&nbsp;15 patches</summary>
 <br>
 
 **🎯 Supported versions:**
 
-| 12.10.3 |
+| 12.10.4 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -67,7 +67,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 | [Hide typing indicator](#hide-typing-indicator) | Hides your typing indicator from other users in all chats. On Telegram Plus also silences the controller-level sendTyping dispatcher. |  |
 | [Remove ads](#remove-ads) | Removes sponsored messages and video ads from all chats and channels. On Telegram Plus also blocks native banner and inline ads. |  |
 | [Unlock Premium](#unlock-premium) | Unlocks Telegram Premium features for the current account. |  |
-| [Use normal paste](#use-normal-paste) | Skips Telegram 12.10.3's Rich HTML branch while preserving normal clipboard handling. |  |
+| [Use normal paste](#use-normal-paste) | Skips Telegram 12.10.4's Rich HTML branch while preserving normal clipboard handling. |  |
 | [Voice to music](#voice-to-music) | Plays voice notes in the full music player with seek bar and background playback. |  |
 
 </details>
@@ -93,7 +93,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 | [Hide typing indicator](#hide-typing-indicator) | Hides your typing indicator from other users in all chats. On Telegram Plus also silences the controller-level sendTyping dispatcher. |  |
 | [Remove ads](#remove-ads) | Removes sponsored messages and video ads from all chats and channels. On Telegram Plus also blocks native banner and inline ads. |  |
 | [Unlock Premium](#unlock-premium) | Unlocks Telegram Premium features for the current account. |  |
-| [Use normal paste](#use-normal-paste) | Skips Telegram 12.10.3's Rich HTML branch while preserving normal clipboard handling. |  |
+| [Use normal paste](#use-normal-paste) | Skips Telegram 12.10.4's Rich HTML branch while preserving normal clipboard handling. |  |
 | [Voice to music](#voice-to-music) | Plays voice notes in the full music player with seek bar and background playback. |  |
 
 </details>
@@ -120,7 +120,7 @@ Please do not post private account data, authentication tokens, or modified APKs
 | [Hide typing indicator](#hide-typing-indicator) | Hides your typing indicator from other users in all chats. On Telegram Plus also silences the controller-level sendTyping dispatcher. |  |
 | [Remove ads](#remove-ads) | Removes sponsored messages and video ads from all chats and channels. On Telegram Plus also blocks native banner and inline ads. |  |
 | [Unlock Premium](#unlock-premium) | Unlocks Telegram Premium features for the current account. |  |
-| [Use normal paste](#use-normal-paste) | Skips Telegram 12.10.3's Rich HTML branch while preserving normal clipboard handling. |  |
+| [Use normal paste](#use-normal-paste) | Skips Telegram 12.10.4's Rich HTML branch while preserving normal clipboard handling. |  |
 | [Voice to music](#voice-to-music) | Plays voice notes in the full music player with seek bar and background playback. |  |
 
 </details>

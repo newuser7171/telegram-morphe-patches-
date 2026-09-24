@@ -1,3 +1,9 @@
+## [1.8.2](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.1...v1.8.2) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* tolerate missing noforwards instruction gates ([88a0b25](https://github.com/cingxcong/telegram-morphe-patches-/commit/88a0b25ee4975300693d95985fbd169b5be76179))
+
 ## [1.8.1](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.0...v1.8.1) (2026-09-23)
 
 ### 🐛 Bug Fixes
