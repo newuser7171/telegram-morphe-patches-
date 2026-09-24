@@ -1,3 +1,9 @@
+## [1.8.4](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.3...v1.8.4) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* validate download boost for Telegram 12.10.4 ([2d08574](https://github.com/cingxcong/telegram-morphe-patches-/commit/2d0857481556afa1cccf2d2a72e8f1a5627db485))
+
 ## [1.8.3](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.2...v1.8.3) (2026-09-24)
 
 ### 🐛 Bug Fixes
