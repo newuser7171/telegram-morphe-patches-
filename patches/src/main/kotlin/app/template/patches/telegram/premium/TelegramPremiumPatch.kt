@@ -1,7 +1,6 @@
 package app.template.patches.telegram.premium
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -104,8 +103,8 @@ val telegramPremiumPatch = bytecodePatch(
                 }
                 .reversed()
                 .forEach { index ->
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-                    replaceInstruction(index, "const/4 v$register, 0x1")
+                    val register = (method.implementation!!.instructions[index] as OneRegisterInstruction).registerA
+                    method.replaceInstruction(index, "const/4 v$register, 0x1")
                 }
         }
 
