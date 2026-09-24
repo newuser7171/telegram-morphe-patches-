@@ -62,12 +62,15 @@ val telegramAntiDisappearingMediaPatch = bytecodePatch(
             """)
         }
 
-        SendSecretMediaDeleteFingerprint.method.addInstructions(0, """
+        // These two callbacks are heavily obfuscated and changed signature between
+        // Telegram releases. Patch them when the verified fingerprint exists, but do
+        // not make the whole Anti-disappearing patch fail when Telegram changes them.
+        SendSecretMediaDeleteFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
 
-        SendSecretMessageReadFingerprint.method.addInstructions(0, """
+        SendSecretMessageReadFingerprint.methodOrNull?.addInstructions(0, """
             const/4 v0, 0x0
             return-object v0
         """)
