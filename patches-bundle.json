@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-24T17:49:52",
-  "description": "## [1.8.7](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.6...v1.8.7) (2026-09-24)\n\n### 🐛 Bug Fixes\n\n* tolerate changed secret media callbacks on Telegram 12.10.4 ([67fa85f](https://github.com/cingxcong/telegram-morphe-patches-/commit/67fa85f82d3ed07f712ec18f1453ab0a92b251cd))",
-  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.8.7/patches-1.8.7.mpp",
+  "created_at": "2026-09-24T17:59:07",
+  "description": "## [1.8.8](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.7...v1.8.8) (2026-09-24)\n\n### 🐛 Bug Fixes\n\n* make premium comparator patch resilient to R8 offsets ([ed34243](https://github.com/cingxcong/telegram-morphe-patches-/commit/ed3424364304f0f292e6b50571c4f6db317c2a02))\n* use method receiver for premium comparator instruction replacement ([80e2739](https://github.com/cingxcong/telegram-morphe-patches-/commit/80e2739843605411c811d6e159569560869210a7))",
+  "download_url": "https://github.com/cingxcong/telegram-morphe-patches-/releases/download/v1.8.8/patches-1.8.8.mpp",
   "signature_download_url": "",
-  "version": "1.8.7"
+  "version": "1.8.8"
 }

@@ -1,3 +1,10 @@
+## [1.8.8](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.7...v1.8.8) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* make premium comparator patch resilient to R8 offsets ([ed34243](https://github.com/cingxcong/telegram-morphe-patches-/commit/ed3424364304f0f292e6b50571c4f6db317c2a02))
+* use method receiver for premium comparator instruction replacement ([80e2739](https://github.com/cingxcong/telegram-morphe-patches-/commit/80e2739843605411c811d6e159569560869210a7))
+
 ## [1.8.7](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.6...v1.8.7) (2026-09-24)
 
 ### 🐛 Bug Fixes
