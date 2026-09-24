@@ -1,7 +1,13 @@
 package app.template.patches.telegram.premium
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_PLUS_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_WEB_COMPATIBILITY
@@ -85,10 +91,22 @@ val telegramPremiumPatch = bytecodePatch(
         """)
 
         StoriesControllerPremiumComparatorFingerprint.methodOrNull?.let { method ->
-            // Exact 12.10.3 bytecode: the inlined premium checks read
-            // TLRPC.User.premium into v1 at offset 147 and v0 at offset 129.
-            method.addInstructions(149, "const/4 v1, 0x1")
-            method.addInstructions(131, "const/4 v0, 0x1")
+            // Do not rely on instruction offsets: R8 changes the comparator body
+            // between Telegram releases. Force every direct TLRPC.User.premium read
+            // to true instead.
+            method.implementation!!.instructions
+                .mapIndexedNotNull { index, instruction ->
+                    val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+                    if (instruction.opcode == Opcode.IGET_BOOLEAN &&
+                        ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$User;" &&
+                        ref.name == "premium"
+                    ) index else null
+                }
+                .reversed()
+                .forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                    replaceInstruction(index, "const/4 v$register, 0x1")
+                }
         }
 
         UserConfigHasPremiumOnAccountsFingerprint.method.addInstructions(0, """
