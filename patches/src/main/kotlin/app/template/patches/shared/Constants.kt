@@ -1549,7 +1549,7 @@ val TELEGRAM_COMPATIBILITY = Compatibility(
         packageName = "org.telegram.messenger",
         apkFileType = ApkFileType.APK,
         appIconColor = 0x2CA5E0,
-        targets = listOf(AppTarget(version = "12.10.3", versionCode =  70892))
+        targets = listOf(AppTarget(version = "12.10.4", versionCode = 70992))
     )
 
 val TELEGRAM_PLUS_COMPATIBILITY = Compatibility(
