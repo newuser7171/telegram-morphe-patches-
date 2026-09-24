@@ -1,3 +1,9 @@
+## [1.8.7](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.6...v1.8.7) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* tolerate changed secret media callbacks on Telegram 12.10.4 ([67fa85f](https://github.com/cingxcong/telegram-morphe-patches-/commit/67fa85f82d3ed07f712ec18f1453ab0a92b251cd))
+
 ## [1.8.6](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.5...v1.8.6) (2026-09-24)
 
 ### 🐛 Bug Fixes
