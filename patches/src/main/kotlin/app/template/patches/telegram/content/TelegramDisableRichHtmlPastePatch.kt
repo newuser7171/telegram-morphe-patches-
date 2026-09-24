@@ -6,7 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.template.patches.shared.Constants.TELEGRAM_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_PLUS_COMPATIBILITY
 import app.template.patches.shared.Constants.TELEGRAM_WEB_COMPATIBILITY
-import app.template.patches.telegram.Telegram12_10_3RichPasteFingerprint
+import app.template.patches.telegram.TelegramRichPasteFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 val telegramDisableRichHtmlPastePatch = bytecodePatch(
     name = "Use normal paste",
-    description = "Skips Telegram 12.10.3's Rich HTML branch while preserving normal clipboard handling.",
+    description = "Skips Telegram 12.10.4's Rich HTML branch while preserving normal clipboard handling.",
 ) {
     compatibleWith(
         TELEGRAM_COMPATIBILITY,
@@ -39,7 +39,7 @@ val telegramDisableRichHtmlPastePatch = bytecodePatch(
                 }
 
             check(richHtmlBranchMatches.isNotEmpty()) {
-                "Expected at least one ClipDescription.hasMimeType(String) branch in Telegram 12.10.3 rich-paste handler"
+                "Expected at least one ClipDescription.hasMimeType(String) branch in Telegram 12.10.4 rich-paste handler"
             }
 
             richHtmlBranchMatches
