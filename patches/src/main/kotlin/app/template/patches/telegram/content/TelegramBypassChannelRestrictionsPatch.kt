@@ -221,15 +221,16 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         """)
 
         // Remove only the per-message noforwards gate; preserve other forwarding restrictions.
-        val noForwardsCheck = CanForwardMessageFingerprint.method.implementation!!.instructions
+        CanForwardMessageFingerprint.method.implementation!!.instructions
             .withIndex()
             .firstOrNull { (_, instruction) ->
                 val ref = (instruction as? ReferenceInstruction)?.reference as? FieldReference
                 ref?.definingClass == "Lorg/telegram/tgnet/TLRPC\$Message;" &&
                     ref.name == "noforwards" &&
                     instruction.opcode.name == "IGET_BOOLEAN"
+            }?.let { noForwardsCheck ->
+                CanForwardMessageFingerprint.method.replaceInstruction(noForwardsCheck.index, "nop")
             }
-        CanForwardMessageFingerprint.method.replaceInstruction(noForwardsCheck.index, "nop")
 
         // ── Sensitive content ─────────────────────────────────────────────────
         SetContentSettingsFingerprint.method.addInstructions(0, "const/4 p1, 0x1")
