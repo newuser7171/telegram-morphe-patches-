@@ -14,16 +14,16 @@ import app.template.patches.telegram.SharedConfigSetNewAppVersionAvailableFinger
 @Suppress("unused")
 val telegramDisableAutoUpdatePatch = bytecodePatch(
     name = "Disable auto-update",
-    description = "Disables Telegram update availability/state and the update-state refresh path without replacing the 12.10.3 update UI method wholesale.",
+    description = "Disables Telegram update availability/state and the update-state refresh path for Telegram 12.10.4 without replacing the update UI method wholesale.",
 ) {
     compatibleWith(TELEGRAM_COMPATIBILITY, TELEGRAM_WEB_COMPATIBILITY, TELEGRAM_PLUS_COMPATIBILITY)
 
     execute {
         check(SharedConfigIsAppUpdateAvailableFingerprint.method.implementation != null) {
-            "Expected concrete SharedConfig.isAppUpdateAvailable() implementation"
+            "Expected concrete SharedConfig.isAppUpdateAvailable() implementation for Telegram 12.10.4"
         }
         check(SharedConfigSetNewAppVersionAvailableFingerprint.method.implementation != null) {
-            "Expected concrete SharedConfig.setNewAppVersionAvailable() implementation"
+            "Expected concrete SharedConfig.setNewAppVersionAvailable() implementation for Telegram 12.10.4"
         }
 
         SharedConfigIsAppUpdateAvailableFingerprint.method.addInstructions(0, """
