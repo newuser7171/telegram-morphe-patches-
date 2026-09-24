@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 // ════════════════════════════════════════════════════════════════════════════════
 // Telegram shared fingerprints
-// Primary target: Telegram Android 12.10.3 (versionCode 70892).
+// Primary target: Telegram Android 12.10.4 (versionCode 70992).
 // Cross-variant notes below are retained where Web/Plus signatures are known.
 // Do not treat cross-variant comments as bytecode verification of 12.10.3.
 // AccessFlags are omitted where known variants differ (e.g. protected vs public).
@@ -208,7 +208,7 @@ val ShowCantOpenAlertFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "showCantOpenAlert",
     returnType = "V",
-    parameters = listOf("Lorg/telegram/ui/ActionBar/r2;", "Ljava/lang/String;"),
+    parameters = listOf("Lorg/telegram/ui/ActionBar/q2;", "Ljava/lang/String;"),
 )
 
 val CheckChannelErrorFingerprint = Fingerprint(
@@ -223,7 +223,7 @@ val CheckSensitiveFingerprint = Fingerprint(
     name = "checkSensitive",
     returnType = "V",
     parameters = listOf(
-        "Lorg/telegram/ui/ActionBar/r2;",
+        "Lorg/telegram/ui/ActionBar/q2;",
         "J",
         "Ljava/lang/Runnable;",
         "Ljava/lang/Runnable;",
@@ -484,7 +484,7 @@ val ProfileActivityIsSwipeBackEnabledFingerprint = Fingerprint(
 )
 
 val ChatActivityIsSwipeBackEnabledFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/po;",
+    definingClass = "Lorg/telegram/ui/ActionBar/q2;",
     name = "isSwipeBackEnabled",
     returnType = "Z",
     parameters = listOf("Landroid/view/MotionEvent;"),
@@ -780,8 +780,8 @@ val ChatActivityForwardMessagesFingerprint = Fingerprint(
     ),
 )
 
-val Telegram12_10_3RichPasteFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/Components/iu;",
+val TelegramRichPasteFingerprint = Fingerprint(
+    definingClass = "Lorg/telegram/ui/Components/du;",
     name = "onTextContextMenuItem",
     returnType = "Z",
     parameters = listOf("I"),
