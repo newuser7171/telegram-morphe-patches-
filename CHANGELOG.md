@@ -1,3 +1,9 @@
+## [1.8.5](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.4...v1.8.5) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* validate auto-update patch for Telegram 12.10.4 ([c6a7b1a](https://github.com/cingxcong/telegram-morphe-patches-/commit/c6a7b1a1cca5805f78705d262662f26abc954013))
+
 ## [1.8.4](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.3...v1.8.4) (2026-09-24)
 
 ### 🐛 Bug Fixes
