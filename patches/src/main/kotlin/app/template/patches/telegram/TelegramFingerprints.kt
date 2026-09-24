@@ -70,7 +70,7 @@ val SafetyNetCheckFingerprint = Fingerprint(
 // ─── Ads ──────────────────────────────────────────────────────────────────────
 
 val ChatActivityAddSponsoredMessagesFingerprint = Fingerprint(
-    definingClass = "Lorg/telegram/ui/po;",
+    definingClass = "Lorg/telegram/ui/no;",
     name = "s6",
     returnType = "V",
 )
