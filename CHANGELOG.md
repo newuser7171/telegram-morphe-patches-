@@ -1,3 +1,11 @@
+## [1.8.6](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.5...v1.8.6) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* correct rich HTML paste patch Kotlin syntax ([f59dce8](https://github.com/cingxcong/telegram-morphe-patches-/commit/f59dce8babfe061c88c83d45bda3969979fc7c1c))
+* replace escaped newlines in rich HTML paste patch ([4072731](https://github.com/cingxcong/telegram-morphe-patches-/commit/4072731e7324212bc700858824632459d810e440))
+* validate rich HTML paste patch for Telegram 12.10.4 ([f31ef50](https://github.com/cingxcong/telegram-morphe-patches-/commit/f31ef50913f186e71699486eb81d66905baaece9))
+
 ## [1.8.5](https://github.com/cingxcong/telegram-morphe-patches-/compare/v1.8.4...v1.8.5) (2026-09-24)
 
 ### 🐛 Bug Fixes
