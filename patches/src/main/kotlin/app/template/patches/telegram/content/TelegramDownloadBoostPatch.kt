@@ -18,16 +18,11 @@ val telegramDownloadBoostPatch = bytecodePatch(
 
     execute {
         check(FileLoadOperationUpdateParamsFingerprint.method.implementation != null) {
-            "Expected concrete FileLoadOperation.updateParams() implementation"
+            "Expected concrete FileLoadOperation.updateParams() implementation for Telegram 12.10.4"
         }
 
-        // Replace the entire method body with maximised values.
-        // Values match Telegram-Speed-Hook (AraafRoyall) which is tested working:
-        //   downloadChunkSizeBig  = 1 MB  (0x100000) — fewer round-trips on fast connections
-        //   maxDownloadRequests   = 12    — 12 parallel MTProto download slots
-        //   maxDownloadRequestsBig = 12   — same for large file mode
-        //   maxCdnParts           = 2000  — 2000 × 1 MB = 2 GB effective CDN file limit
-        // const/high16 0x100000 = 0x10 << 16 = 1048576 (1 MB)
+        // Telegram 12.10.4 retains the expected FileLoadOperation fields:
+        //   downloadChunkSizeBig, maxDownloadRequests, maxDownloadRequestsBig, maxCdnParts.
         FileLoadOperationUpdateParamsFingerprint.method.addInstructions(0, """
             const/high16 v0, 0x100000
             iput v0, p0, Lorg/telegram/messenger/FileLoadOperation;->downloadChunkSizeBig:I
