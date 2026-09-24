@@ -24,7 +24,7 @@ val telegramDisableRichHtmlPastePatch = bytecodePatch(
     )
 
     execute {
-        TelegramRichPasteFingerprint.methodOrNull?.apply {
+        check(TelegramRichPasteFingerprint.method.implementation != null) {\n            "Expected concrete Components.du.onTextContextMenuItem(I):Z implementation for Telegram 12.10.4"\n        }\n\n        TelegramRichPasteFingerprint.method.apply {
             val richHtmlBranchMatches = implementation!!.instructions
                 .mapIndexedNotNull { index, instruction ->
                     if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@mapIndexedNotNull null
