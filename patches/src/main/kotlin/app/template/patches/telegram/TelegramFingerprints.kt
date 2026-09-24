@@ -208,7 +208,7 @@ val ShowCantOpenAlertFingerprint = Fingerprint(
     definingClass = "Lorg/telegram/messenger/MessagesController;",
     name = "showCantOpenAlert",
     returnType = "V",
-    parameters = listOf("Lorg/telegram/ui/ActionBar/q2;", "Ljava/lang/String;"),
+    parameters = listOf("Lorg/telegram/ui/ActionBar/r2;", "Ljava/lang/String;"),
 )
 
 val CheckChannelErrorFingerprint = Fingerprint(
