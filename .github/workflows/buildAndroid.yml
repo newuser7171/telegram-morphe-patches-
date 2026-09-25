@@ -2,7 +2,7 @@ name: Build Telegram 12.10.3 patches
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'fix/telegram-12.10.3-70892']
   workflow_dispatch:
 
 permissions:
