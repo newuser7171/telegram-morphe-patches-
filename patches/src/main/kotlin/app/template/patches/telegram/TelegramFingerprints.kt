@@ -223,7 +223,7 @@ val CheckSensitiveFingerprint = Fingerprint(
     name = "checkSensitive",
     returnType = "V",
     parameters = listOf(
-        "Lorg/telegram/ui/ActionBar/q2;",
+        "Lorg/telegram/ui/ActionBar/r2;",
         "J",
         "Ljava/lang/Runnable;",
         "Ljava/lang/Runnable;",
