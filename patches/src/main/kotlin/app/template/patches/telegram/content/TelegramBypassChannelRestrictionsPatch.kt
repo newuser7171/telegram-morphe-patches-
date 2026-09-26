@@ -271,17 +271,20 @@ val telegramBypassChannelRestrictionsPatch = bytecodePatch(
         GetChannelDiffErrorFingerprint.methodOrNull?.addInstructions(0, "return-void")
 
         // ── Chat open permission ──────────────────────────────────────────────
-        // R8 changes the parameter descriptors of checkCanOpenChat across Telegram
-        // builds. Resolve the mutable class directly instead of relying on three
-        // fragile fingerprints.
+        // Telegram 12.10.3 (70892) has three boolean-returning overloads.
+        // Only bypass the two-argument Bundle/r2 permission check.
         val checkCanOpenChatMethods = mutableClassDefBy("Lorg/telegram/messenger/MessagesController;").methods
             .filter {
                 it.name == "checkCanOpenChat" &&
-                    it.returnType == "Z"
+                    it.returnType == "Z" &&
+                    it.parameterTypes == listOf(
+                        "Landroid/os/Bundle;",
+                        "Lorg/telegram/ui/ActionBar/r2;",
+                    )
             }
 
         check(checkCanOpenChatMethods.size == 1) {
-            "Expected exactly 1 MessagesController.checkCanOpenChat(Z-returning) method, " +
+            "Expected exactly 1 MessagesController.checkCanOpenChat(Bundle, r2): Z method, " +
                 "found ${checkCanOpenChatMethods.size}"
         }
 
